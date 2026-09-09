@@ -1,0 +1,20 @@
+{
+  "id": "processed-food-chocolate-bar",
+  "category": "processed_food",
+  "productLabel": "ミルクチョコレートバー(カカオ分40%)",
+  "description": "Second processed-food data point in a different chapter (18, not 19), to see if the food-category gap found with instant noodles is systematic. Cocoa content is exactly the kind of ratio the classifier should ask about, per the original design brief's own food-category example.",
+  "initialRequest": {
+    "name": "ミルクチョコレートバー",
+    "description": "カカオ分40%のミルクチョコレートを板状に成形したお菓子です。ナッツなどのフィリングは入っていません。"
+  },
+  "expectedStatus": "CLASSIFIED",
+  "expectedCategory": "food",
+  "expectedMissingQuestionKeys": ["ingredients", "processing_method"],
+  "expectedHs": {
+    "level": "subheading",
+    "code": "1806.32",
+    "basis": "RESEARCHED",
+    "reference": "HS heading 1806 ('Chocolate and other food preparations containing cocoa'); subheading 1806.32 covers chocolate in blocks/slabs/bars, not filled — confirmed by multiple classification guides (credlix, freightamigo, datamyne) as the standard code for a plain (unfilled) chocolate bar."
+  },
+  "notes": "Prediction before running: same structural gap as instant noodles — 'チョコレート'/'お菓子' don't match any food matchKeyword, so category likely resolves to 'unknown', and chapter 18 doesn't exist in the dataset regardless. Keeping this alongside the noodle case turns one example into a pattern: the food category, as currently defined, effectively only recognizes tea/coffee-adjacent products, not food broadly."
+}

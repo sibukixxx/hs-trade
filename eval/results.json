@@ -1,0 +1,2058 @@
+{
+  "generatedAt": "2026-09-09T06:37:09.178Z",
+  "cases": [
+    {
+      "evalCase": {
+        "id": "apparel-cotton-tshirt",
+        "category": "apparel",
+        "productLabel": "綿100%の半袖Tシャツ",
+        "description": "Baseline easy apparel case, mirroring the definitional-nomenclature confidence of the tea control case.",
+        "initialRequest": {
+          "name": "半袖Tシャツ",
+          "description": "夏用の半袖丸首Tシャツです。"
+        },
+        "followUpAnswers": {
+          "fiber_composition": "綿100%",
+          "knit_or_woven": "ニット(メリヤス編み)",
+          "garment_type": "半袖Tシャツ"
+        },
+        "expectedStatus": "CLASSIFIED",
+        "expectedCategory": "textile",
+        "expectedMissingQuestionKeys": [
+          "fiber_composition",
+          "knit_or_woven",
+          "garment_type"
+        ],
+        "expectedHs": {
+          "level": "subheading",
+          "code": "6109.10",
+          "basis": "HS_NOMENCLATURE_TEXT",
+          "reference": "HS heading 6109 ('T-shirts, singlets and other vests, knitted or crocheted'); subheading 6109.10 ('of cotton') — direct nomenclature text, not a case-specific ruling."
+        },
+        "notes": "Control case. Expected to pass cleanly, same role as tea-green-tea-leaf."
+      },
+      "rounds": [
+        {
+          "status": "NEEDS_INFORMATION",
+          "category": "textile",
+          "productFacts": {
+            "name": "半袖Tシャツ",
+            "description": "夏用の半袖丸首Tシャツです。",
+            "facts": []
+          },
+          "questions": [
+            {
+              "key": "fiber_composition",
+              "question": "主な素材と構成比を教えてください(例: 綿100%)。",
+              "reason": "繊維製品の関税分類は素材構成によって大きく変わるため必要です。"
+            },
+            {
+              "key": "knit_or_woven",
+              "question": "ニット(メリヤス編み)ですか、織物ですか?",
+              "reason": "編み物か織物かで該当する類(61類/62類)が変わります。"
+            },
+            {
+              "key": "garment_type",
+              "question": "衣類の種類を教えてください(例: Tシャツ、シャツ、パンツ等)。",
+              "reason": "品目の種類によって該当する項が変わります。"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        },
+        {
+          "status": "CLASSIFIED",
+          "category": "textile",
+          "productFacts": {
+            "name": "半袖Tシャツ",
+            "description": "夏用の半袖丸首Tシャツです。",
+            "facts": [
+              {
+                "key": "fiber_composition",
+                "value": "綿100%",
+                "source": "USER_DECLARED"
+              },
+              {
+                "key": "knit_or_woven",
+                "value": "ニット(メリヤス編み)",
+                "source": "USER_DECLARED"
+              },
+              {
+                "key": "garment_type",
+                "value": "半袖Tシャツ",
+                "source": "USER_DECLARED"
+              }
+            ]
+          },
+          "candidates": [
+            {
+              "code": "6109.10",
+              "rank": 1,
+              "reason": "製品情報中の「綿」が6109.10(Tシャツ等(綿製のもの))の分類基準と一致すると判断しました。",
+              "confidence": 0.55,
+              "headingDescription": "Tシャツ等(綿製のもの)"
+            },
+            {
+              "code": "6205.20",
+              "rank": 2,
+              "reason": "製品情報中の「綿」が6205.20(男子用シャツ(綿製のもの))の分類基準と一致すると判断しました。",
+              "confidence": 0.55,
+              "headingDescription": "男子用シャツ(綿製のもの)"
+            },
+            {
+              "code": "6109.90",
+              "rank": 3,
+              "reason": "他の候補と比べて6109.90(Tシャツ等(その他の紡織用繊維製のもの))が最も近いと判断しました。",
+              "confidence": 0.4,
+              "headingDescription": "Tシャツ等(その他の紡織用繊維製のもの)"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        }
+      ],
+      "final": {
+        "status": "CLASSIFIED",
+        "category": "textile",
+        "productFacts": {
+          "name": "半袖Tシャツ",
+          "description": "夏用の半袖丸首Tシャツです。",
+          "facts": [
+            {
+              "key": "fiber_composition",
+              "value": "綿100%",
+              "source": "USER_DECLARED"
+            },
+            {
+              "key": "knit_or_woven",
+              "value": "ニット(メリヤス編み)",
+              "source": "USER_DECLARED"
+            },
+            {
+              "key": "garment_type",
+              "value": "半袖Tシャツ",
+              "source": "USER_DECLARED"
+            }
+          ]
+        },
+        "candidates": [
+          {
+            "code": "6109.10",
+            "rank": 1,
+            "reason": "製品情報中の「綿」が6109.10(Tシャツ等(綿製のもの))の分類基準と一致すると判断しました。",
+            "confidence": 0.55,
+            "headingDescription": "Tシャツ等(綿製のもの)"
+          },
+          {
+            "code": "6205.20",
+            "rank": 2,
+            "reason": "製品情報中の「綿」が6205.20(男子用シャツ(綿製のもの))の分類基準と一致すると判断しました。",
+            "confidence": 0.55,
+            "headingDescription": "男子用シャツ(綿製のもの)"
+          },
+          {
+            "code": "6109.90",
+            "rank": 3,
+            "reason": "他の候補と比べて6109.90(Tシャツ等(その他の紡織用繊維製のもの))が最も近いと判断しました。",
+            "confidence": 0.4,
+            "headingDescription": "Tシャツ等(その他の紡織用繊維製のもの)"
+          }
+        ],
+        "datasetVersion": "HS2022-demo-v0.1",
+        "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+      },
+      "checks": [
+        {
+          "name": "status_as_expected",
+          "pass": true,
+          "detail": "expected CLASSIFIED, got CLASSIFIED"
+        },
+        {
+          "name": "no_overconfident_classification",
+          "pass": true,
+          "detail": "ok"
+        },
+        {
+          "name": "category_as_expected",
+          "pass": true,
+          "detail": "routed to textile as expected"
+        },
+        {
+          "name": "expected_questions_asked",
+          "pass": true,
+          "detail": "asked all of: fiber_composition, knit_or_woven, garment_type"
+        },
+        {
+          "name": "expected_candidate_found",
+          "pass": true,
+          "detail": "found 6109.10 among candidates: 6109.10, 6205.20, 6109.90"
+        },
+        {
+          "name": "top_candidate_matches_expected",
+          "pass": true,
+          "detail": "Recommended candidate (6109.10) matches expected 6109.10"
+        },
+        {
+          "name": "facts_roundtrip",
+          "pass": true,
+          "detail": "all declared answers appear as USER_DECLARED facts in the final result"
+        },
+        {
+          "name": "evidence_present",
+          "pass": true,
+          "detail": "all candidates/questions carry reasons; dataset version+source present"
+        }
+      ],
+      "failureReasons": [],
+      "critical": false
+    },
+    {
+      "evalCase": {
+        "id": "apparel-poly-cotton-blend-shirt",
+        "category": "apparel",
+        "productLabel": "ポリエステル65%・綿35%混紡のワイシャツ",
+        "description": "Tests the real HS 'chief weight' rule for fiber blends (Section XI, Note 2: a mixture of textile materials is classified as if wholly of the material that predominates by weight). Here polyester (65%) predominates, so the correct answer is the man-made-fibre subheading, not the cotton one — even though the fabric contains cotton too. The classifier only accepts a fiber_composition ANSWER as 'present', with no parsing of percentages at all, so it has no way to actually apply this rule.",
+        "initialRequest": {
+          "name": "メンズシャツ",
+          "description": "オフィス用の長袖シャツです。"
+        },
+        "followUpAnswers": {
+          "fiber_composition": "ポリエステル65%・綿35%の混紡",
+          "knit_or_woven": "織物(ウーブン)",
+          "garment_type": "長袖シャツ"
+        },
+        "expectedStatus": "CLASSIFIED",
+        "expectedCategory": "textile",
+        "expectedMissingQuestionKeys": [
+          "fiber_composition",
+          "knit_or_woven",
+          "garment_type"
+        ],
+        "expectedHs": {
+          "level": "subheading",
+          "code": "6205.30",
+          "basis": "HS_NOMENCLATURE_TEXT",
+          "reference": "HS Section XI, Note 2(A) (General Interpretive Rule for mixed textile materials): classify as consisting wholly of the textile material which predominates by weight. Polyester at 65% predominates, so this is 'of man-made fibres' — heading 6205, subheading 6205.30 — not 6205.20 (of cotton)."
+        },
+        "notes": "Prediction before running: our candidate scorer just counts whether the literal words '綿' and 'ポリエステル' appear in the text — both do, once each, regardless of the attached percentages. So 6205.20 and 6205.30 will very likely score identically, and whichever wins will be an accident of dataset file ordering (6205.20 is listed first in subheadings.json), not an application of the chief-weight rule. If the tool's Recommended candidate is 6205.20 here, that's not a coincidence that happens to be safe — it would be equally wrong (and equally confident) if I'd written 'cotton 65% / polyester 35%' instead, since the code never actually reads the percentages. That is the finding, independent of which single subheading happens to come out on top this run."
+      },
+      "rounds": [
+        {
+          "status": "NEEDS_INFORMATION",
+          "category": "textile",
+          "productFacts": {
+            "name": "メンズシャツ",
+            "description": "オフィス用の長袖シャツです。",
+            "facts": []
+          },
+          "questions": [
+            {
+              "key": "fiber_composition",
+              "question": "主な素材と構成比を教えてください(例: 綿100%)。",
+              "reason": "繊維製品の関税分類は素材構成によって大きく変わるため必要です。"
+            },
+            {
+              "key": "knit_or_woven",
+              "question": "ニット(メリヤス編み)ですか、織物ですか?",
+              "reason": "編み物か織物かで該当する類(61類/62類)が変わります。"
+            },
+            {
+              "key": "garment_type",
+              "question": "衣類の種類を教えてください(例: Tシャツ、シャツ、パンツ等)。",
+              "reason": "品目の種類によって該当する項が変わります。"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        },
+        {
+          "status": "CLASSIFIED",
+          "category": "textile",
+          "productFacts": {
+            "name": "メンズシャツ",
+            "description": "オフィス用の長袖シャツです。",
+            "facts": [
+              {
+                "key": "fiber_composition",
+                "value": "ポリエステル65%・綿35%の混紡",
+                "source": "USER_DECLARED"
+              },
+              {
+                "key": "knit_or_woven",
+                "value": "織物(ウーブン)",
+                "source": "USER_DECLARED"
+              },
+              {
+                "key": "garment_type",
+                "value": "長袖シャツ",
+                "source": "USER_DECLARED"
+              }
+            ]
+          },
+          "candidates": [
+            {
+              "code": "6205.20",
+              "rank": 1,
+              "reason": "製品情報中の「綿」が6205.20(男子用シャツ(綿製のもの))の分類基準と一致すると判断しました。",
+              "confidence": 0.55,
+              "headingDescription": "男子用シャツ(綿製のもの)"
+            },
+            {
+              "code": "6205.30",
+              "rank": 2,
+              "reason": "製品情報中の「ポリエステル」が6205.30(男子用シャツ(人造繊維製のもの))の分類基準と一致すると判断しました。",
+              "confidence": 0.55,
+              "headingDescription": "男子用シャツ(人造繊維製のもの)"
+            },
+            {
+              "code": "6109.10",
+              "rank": 3,
+              "reason": "製品情報中の「綿」が6109.10(Tシャツ等(綿製のもの))の分類基準と一致すると判断しました。",
+              "confidence": 0.55,
+              "headingDescription": "Tシャツ等(綿製のもの)"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        }
+      ],
+      "final": {
+        "status": "CLASSIFIED",
+        "category": "textile",
+        "productFacts": {
+          "name": "メンズシャツ",
+          "description": "オフィス用の長袖シャツです。",
+          "facts": [
+            {
+              "key": "fiber_composition",
+              "value": "ポリエステル65%・綿35%の混紡",
+              "source": "USER_DECLARED"
+            },
+            {
+              "key": "knit_or_woven",
+              "value": "織物(ウーブン)",
+              "source": "USER_DECLARED"
+            },
+            {
+              "key": "garment_type",
+              "value": "長袖シャツ",
+              "source": "USER_DECLARED"
+            }
+          ]
+        },
+        "candidates": [
+          {
+            "code": "6205.20",
+            "rank": 1,
+            "reason": "製品情報中の「綿」が6205.20(男子用シャツ(綿製のもの))の分類基準と一致すると判断しました。",
+            "confidence": 0.55,
+            "headingDescription": "男子用シャツ(綿製のもの)"
+          },
+          {
+            "code": "6205.30",
+            "rank": 2,
+            "reason": "製品情報中の「ポリエステル」が6205.30(男子用シャツ(人造繊維製のもの))の分類基準と一致すると判断しました。",
+            "confidence": 0.55,
+            "headingDescription": "男子用シャツ(人造繊維製のもの)"
+          },
+          {
+            "code": "6109.10",
+            "rank": 3,
+            "reason": "製品情報中の「綿」が6109.10(Tシャツ等(綿製のもの))の分類基準と一致すると判断しました。",
+            "confidence": 0.55,
+            "headingDescription": "Tシャツ等(綿製のもの)"
+          }
+        ],
+        "datasetVersion": "HS2022-demo-v0.1",
+        "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+      },
+      "checks": [
+        {
+          "name": "status_as_expected",
+          "pass": true,
+          "detail": "expected CLASSIFIED, got CLASSIFIED"
+        },
+        {
+          "name": "no_overconfident_classification",
+          "pass": true,
+          "detail": "ok"
+        },
+        {
+          "name": "category_as_expected",
+          "pass": true,
+          "detail": "routed to textile as expected"
+        },
+        {
+          "name": "expected_questions_asked",
+          "pass": true,
+          "detail": "asked all of: fiber_composition, knit_or_woven, garment_type"
+        },
+        {
+          "name": "expected_candidate_found",
+          "pass": true,
+          "detail": "found 6205.30 among candidates: 6205.20, 6205.30, 6109.10"
+        },
+        {
+          "name": "top_candidate_matches_expected",
+          "pass": false,
+          "detail": "expected 6205.30 was retrieved but Recommended candidate was 6205.20 instead — right answer present, wrong one surfaced as primary"
+        },
+        {
+          "name": "facts_roundtrip",
+          "pass": true,
+          "detail": "all declared answers appear as USER_DECLARED facts in the final result"
+        },
+        {
+          "name": "evidence_present",
+          "pass": true,
+          "detail": "all candidates/questions carry reasons; dataset version+source present"
+        }
+      ],
+      "failureReasons": [
+        "RULE_INTERPRETATION_ERROR"
+      ],
+      "critical": false
+    },
+    {
+      "evalCase": {
+        "id": "cosmetics-lip-balm",
+        "category": "cosmetics",
+        "productLabel": "無香料リップクリーム(非医薬品)",
+        "description": "Cosmetics has no category definition. Deliberately phrased with no medicinal claims, since a medicated lip balm would push classification a different way (HS 3306) — testing plain cosmetic-use lip balm.",
+        "initialRequest": {
+          "name": "無香料リップクリーム",
+          "description": "唇の乾燥を防ぐ保湿クリームです。パラベンフリー処方で、医薬品的な効能は表示していません。"
+        },
+        "expectedStatus": "CLASSIFIED",
+        "expectedHs": {
+          "level": "subheading",
+          "code": "3304.10",
+          "basis": "RESEARCHED",
+          "reference": "US CBP guidance ('Beauty and Skin Care Products of Heading 3304') and multiple classification guides confirm non-medicated cosmetic lip balm is classified under 3304.10 (lip make-up preparations), the same subheading as lipstick — medicated lip balm with SPF/therapeutic claims would instead fall under 3306.20."
+        },
+        "notes": "Prediction before running: none of chemical/textile/food/machinery matchKeywords fire on this description, so category='unknown' and the generic clarifying question is asked instead of anything cosmetics-relevant. Chapter 33 is entirely absent from data/hs/*.json, so even a correct category label wouldn't help without dataset expansion."
+      },
+      "rounds": [
+        {
+          "status": "NEEDS_INFORMATION",
+          "category": "chemical",
+          "productFacts": {
+            "name": "無香料リップクリーム",
+            "description": "唇の乾燥を防ぐ保湿クリームです。パラベンフリー処方で、医薬品的な効能は表示していません。",
+            "facts": []
+          },
+          "questions": [
+            {
+              "key": "chemical_name",
+              "question": "化学名を教えてください(可能であればCAS番号も)。",
+              "reason": "化学品はまず化学名/組成が特定できないと分類できません。"
+            },
+            {
+              "key": "is_mixture",
+              "question": "単一の化合物ですか、それとも混合物ですか?",
+              "reason": "単一化合物か混合物かで分類の考え方が変わります。"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        }
+      ],
+      "final": {
+        "status": "NEEDS_INFORMATION",
+        "category": "chemical",
+        "productFacts": {
+          "name": "無香料リップクリーム",
+          "description": "唇の乾燥を防ぐ保湿クリームです。パラベンフリー処方で、医薬品的な効能は表示していません。",
+          "facts": []
+        },
+        "questions": [
+          {
+            "key": "chemical_name",
+            "question": "化学名を教えてください(可能であればCAS番号も)。",
+            "reason": "化学品はまず化学名/組成が特定できないと分類できません。"
+          },
+          {
+            "key": "is_mixture",
+            "question": "単一の化合物ですか、それとも混合物ですか?",
+            "reason": "単一化合物か混合物かで分類の考え方が変わります。"
+          }
+        ],
+        "datasetVersion": "HS2022-demo-v0.1",
+        "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+      },
+      "checks": [
+        {
+          "name": "status_as_expected",
+          "pass": false,
+          "detail": "expected CLASSIFIED, got NEEDS_INFORMATION"
+        },
+        {
+          "name": "no_overconfident_classification",
+          "pass": true,
+          "detail": "ok"
+        },
+        {
+          "name": "expected_questions_asked",
+          "pass": true,
+          "detail": "n/a — no expected questions declared"
+        },
+        {
+          "name": "expected_candidate_found",
+          "pass": false,
+          "detail": "expected 3304.10, candidates were: (none)"
+        },
+        {
+          "name": "facts_roundtrip",
+          "pass": true,
+          "detail": "all declared answers appear as USER_DECLARED facts in the final result"
+        },
+        {
+          "name": "evidence_present",
+          "pass": true,
+          "detail": "all candidates/questions carry reasons; dataset version+source present"
+        }
+      ],
+      "failureReasons": [
+        "HS_DATA_GAP"
+      ],
+      "critical": false
+    },
+    {
+      "evalCase": {
+        "id": "cosmetics-shampoo",
+        "category": "cosmetics",
+        "productLabel": "アミノ酸系シャンプー",
+        "description": "This case was written with completely ordinary marketing Japanese ('アミノ酸系' = 'amino-acid-based', a routine way to describe a mild shampoo) — not to trick the tool. It exposes a real bug: the chemical category's match keyword list includes the single character '酸' ('acid'), which is a substring of '酸' anywhere, including inside 'アミノ酸' ('amino acid'). That mis-routes an ordinary cosmetic product into the chemical category and triggers nonsensical questions (chemical name / CAS number) for a shampoo bottle.",
+        "initialRequest": {
+          "name": "アミノ酸系シャンプー",
+          "description": "頭皮と髪を洗うための家庭用シャンプーです。アミノ酸系洗浄成分を使用しています。"
+        },
+        "expectedStatus": "NEEDS_INFORMATION",
+        "expectedCategory": "unknown",
+        "expectedHs": {
+          "level": "subheading",
+          "code": "3305.10",
+          "basis": "RESEARCHED",
+          "reference": "HS heading 3305 ('Preparations for use on the hair'), subheading 3305.10 ('Shampoos') — confirmed by taricsupport.com nomenclature and multiple classification guides as the standard code for hair shampoo, including amino-acid-based formulations."
+        },
+        "notes": "Prediction before running: since 'cosmetics' isn't a real category in this classifier (expectedCategory here states what SHOULD happen, not what the code can currently produce), the actual outcome is expected to be worse than a plain 'unknown' case — the single-character keyword '酸' in the chemical category's matchKeywords list will match inside '酸' as a substring of the word 'アミノ酸' ('amino acid'), silently routing a shampoo into the chemical-product question flow ('化学名を教えてください' / CAS number). That's a materially worse failure mode than 'doesn't know this product' — it's confidently asking the wrong questions for the wrong reason. This is the most important single finding to fix before adding more coverage: keyword-substring category detection needs word-boundary or multi-character-minimum matching, not raw substring checks on 1-character strings."
+      },
+      "rounds": [
+        {
+          "status": "NEEDS_INFORMATION",
+          "category": "chemical",
+          "productFacts": {
+            "name": "アミノ酸系シャンプー",
+            "description": "頭皮と髪を洗うための家庭用シャンプーです。アミノ酸系洗浄成分を使用しています。",
+            "facts": []
+          },
+          "questions": [
+            {
+              "key": "chemical_name",
+              "question": "化学名を教えてください(可能であればCAS番号も)。",
+              "reason": "化学品はまず化学名/組成が特定できないと分類できません。"
+            },
+            {
+              "key": "is_mixture",
+              "question": "単一の化合物ですか、それとも混合物ですか?",
+              "reason": "単一化合物か混合物かで分類の考え方が変わります。"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        }
+      ],
+      "final": {
+        "status": "NEEDS_INFORMATION",
+        "category": "chemical",
+        "productFacts": {
+          "name": "アミノ酸系シャンプー",
+          "description": "頭皮と髪を洗うための家庭用シャンプーです。アミノ酸系洗浄成分を使用しています。",
+          "facts": []
+        },
+        "questions": [
+          {
+            "key": "chemical_name",
+            "question": "化学名を教えてください(可能であればCAS番号も)。",
+            "reason": "化学品はまず化学名/組成が特定できないと分類できません。"
+          },
+          {
+            "key": "is_mixture",
+            "question": "単一の化合物ですか、それとも混合物ですか?",
+            "reason": "単一化合物か混合物かで分類の考え方が変わります。"
+          }
+        ],
+        "datasetVersion": "HS2022-demo-v0.1",
+        "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+      },
+      "checks": [
+        {
+          "name": "status_as_expected",
+          "pass": true,
+          "detail": "expected NEEDS_INFORMATION, got NEEDS_INFORMATION"
+        },
+        {
+          "name": "no_overconfident_classification",
+          "pass": true,
+          "detail": "ok"
+        },
+        {
+          "name": "category_as_expected",
+          "pass": false,
+          "detail": "expected category unknown, routed to chemical instead"
+        },
+        {
+          "name": "expected_questions_asked",
+          "pass": true,
+          "detail": "n/a — no expected questions declared"
+        },
+        {
+          "name": "expected_candidate_found",
+          "pass": false,
+          "detail": "expected 3305.10, candidates were: (none)"
+        },
+        {
+          "name": "facts_roundtrip",
+          "pass": true,
+          "detail": "all declared answers appear as USER_DECLARED facts in the final result"
+        },
+        {
+          "name": "evidence_present",
+          "pass": true,
+          "detail": "all candidates/questions carry reasons; dataset version+source present"
+        }
+      ],
+      "failureReasons": [
+        "RULE_INTERPRETATION_ERROR",
+        "HS_DATA_GAP"
+      ],
+      "critical": false
+    },
+    {
+      "evalCase": {
+        "id": "electronics-usb-cable",
+        "category": "electronics",
+        "productLabel": "USB-C to USB-A 充電・データ転送ケーブル",
+        "description": "Electronics has no category definition either. This case checks whether a very common, fully-specified consumer item at least gets engaged with sensibly.",
+        "initialRequest": {
+          "name": "USB-C to USB-Aケーブル",
+          "description": "USB Type-CコネクタとUSB Type-Aコネクタが両端に付いた、1mの充電・データ転送用ケーブルです。"
+        },
+        "expectedStatus": "CLASSIFIED",
+        "expectedHs": {
+          "level": "subheading",
+          "code": "8544.42",
+          "basis": "RESEARCHED",
+          "reference": "HS heading 8544 covers insulated electric conductors/cables, whether or not fitted with connectors; multiple trade-compliance guides (freightamigo, brokergenius, ramcorpwire) converge on 8544.42 specifically for cables ≤1,000V fitted with connectors (USB, Ethernet, power cords) — the presence of terminated connectors is the key classification factor cited across sources."
+        },
+        "notes": "Prediction before running: 'machinery' is the only category with any electronics-adjacent keywords ('機器','電動','モーター'), none of which appear in a USB cable description, so this falls to category='unknown'. Even if it were somehow routed to machinery, chapter 85 in our dataset only models heading 8509 (domestic appliances), not 8544 — so this is a clean HS_DATA_GAP either way, not just a category-detection problem."
+      },
+      "rounds": [
+        {
+          "status": "NEEDS_INFORMATION",
+          "category": "unknown",
+          "productFacts": {
+            "name": "USB-C to USB-Aケーブル",
+            "description": "USB Type-CコネクタとUSB Type-Aコネクタが両端に付いた、1mの充電・データ転送用ケーブルです。",
+            "facts": []
+          },
+          "questions": [
+            {
+              "key": "product_category_hint",
+              "question": "商品の主な材質・原材料・用途のいずれかを教えてください(例: 布製の衣類、食品、化学薬品、機械など)。",
+              "reason": "商品のカテゴリーが判断できず、分類に必要な質問を決められませんでした。"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        }
+      ],
+      "final": {
+        "status": "NEEDS_INFORMATION",
+        "category": "unknown",
+        "productFacts": {
+          "name": "USB-C to USB-Aケーブル",
+          "description": "USB Type-CコネクタとUSB Type-Aコネクタが両端に付いた、1mの充電・データ転送用ケーブルです。",
+          "facts": []
+        },
+        "questions": [
+          {
+            "key": "product_category_hint",
+            "question": "商品の主な材質・原材料・用途のいずれかを教えてください(例: 布製の衣類、食品、化学薬品、機械など)。",
+            "reason": "商品のカテゴリーが判断できず、分類に必要な質問を決められませんでした。"
+          }
+        ],
+        "datasetVersion": "HS2022-demo-v0.1",
+        "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+      },
+      "checks": [
+        {
+          "name": "status_as_expected",
+          "pass": false,
+          "detail": "expected CLASSIFIED, got NEEDS_INFORMATION"
+        },
+        {
+          "name": "no_overconfident_classification",
+          "pass": true,
+          "detail": "ok"
+        },
+        {
+          "name": "expected_questions_asked",
+          "pass": true,
+          "detail": "n/a — no expected questions declared"
+        },
+        {
+          "name": "expected_candidate_found",
+          "pass": false,
+          "detail": "expected 8544.42, candidates were: (none)"
+        },
+        {
+          "name": "facts_roundtrip",
+          "pass": true,
+          "detail": "all declared answers appear as USER_DECLARED facts in the final result"
+        },
+        {
+          "name": "evidence_present",
+          "pass": true,
+          "detail": "all candidates/questions carry reasons; dataset version+source present"
+        }
+      ],
+      "failureReasons": [
+        "HS_DATA_GAP"
+      ],
+      "critical": false
+    },
+    {
+      "evalCase": {
+        "id": "electronics-usb-charger",
+        "category": "electronics",
+        "productLabel": "USB-C急速充電器(ACアダプター)",
+        "description": "A second electronics data point in a genuinely different heading (8504, not 8544) from the cable case, to see whether the classifier can even distinguish 'a cable' from 'a power adapter' when it can't reach either heading anyway.",
+        "initialRequest": {
+          "name": "USB急速充電器",
+          "description": "コンセントに直接挿して使うACアダプターで、USB Type-Cポートを1つ備え、最大30W出力の急速充電に対応します。"
+        },
+        "expectedStatus": "CLASSIFIED",
+        "expectedHs": {
+          "level": "subheading",
+          "code": "8504.40",
+          "basis": "RESEARCHED",
+          "reference": "HTS/HS heading 8504 ('Electrical static converters'), subheading 8504.40 — confirmed by multiple sources (dutiable.io 'USB-C Wall Charger / GaN Charger: 8504.40.20', freightamigo AC/DC adapter guides) as the standard classification for USB wall chargers and AC/DC power adapters."
+        },
+        "notes": "Prediction before running: same outcome as the cable case for the same structural reason — no electronics category, and chapter 85 in our dataset only covers heading 8509. This and the cable case together show the gap is at the chapter/heading level (85 is 'covered' in name only, via one narrow heading), not just a missing top-level category label."
+      },
+      "rounds": [
+        {
+          "status": "NEEDS_INFORMATION",
+          "category": "unknown",
+          "productFacts": {
+            "name": "USB急速充電器",
+            "description": "コンセントに直接挿して使うACアダプターで、USB Type-Cポートを1つ備え、最大30W出力の急速充電に対応します。",
+            "facts": []
+          },
+          "questions": [
+            {
+              "key": "product_category_hint",
+              "question": "商品の主な材質・原材料・用途のいずれかを教えてください(例: 布製の衣類、食品、化学薬品、機械など)。",
+              "reason": "商品のカテゴリーが判断できず、分類に必要な質問を決められませんでした。"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        }
+      ],
+      "final": {
+        "status": "NEEDS_INFORMATION",
+        "category": "unknown",
+        "productFacts": {
+          "name": "USB急速充電器",
+          "description": "コンセントに直接挿して使うACアダプターで、USB Type-Cポートを1つ備え、最大30W出力の急速充電に対応します。",
+          "facts": []
+        },
+        "questions": [
+          {
+            "key": "product_category_hint",
+            "question": "商品の主な材質・原材料・用途のいずれかを教えてください(例: 布製の衣類、食品、化学薬品、機械など)。",
+            "reason": "商品のカテゴリーが判断できず、分類に必要な質問を決められませんでした。"
+          }
+        ],
+        "datasetVersion": "HS2022-demo-v0.1",
+        "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+      },
+      "checks": [
+        {
+          "name": "status_as_expected",
+          "pass": false,
+          "detail": "expected CLASSIFIED, got NEEDS_INFORMATION"
+        },
+        {
+          "name": "no_overconfident_classification",
+          "pass": true,
+          "detail": "ok"
+        },
+        {
+          "name": "expected_questions_asked",
+          "pass": true,
+          "detail": "n/a — no expected questions declared"
+        },
+        {
+          "name": "expected_candidate_found",
+          "pass": false,
+          "detail": "expected 8504.40, candidates were: (none)"
+        },
+        {
+          "name": "facts_roundtrip",
+          "pass": true,
+          "detail": "all declared answers appear as USER_DECLARED facts in the final result"
+        },
+        {
+          "name": "evidence_present",
+          "pass": true,
+          "detail": "all candidates/questions carry reasons; dataset version+source present"
+        }
+      ],
+      "failureReasons": [
+        "HS_DATA_GAP"
+      ],
+      "critical": false
+    },
+    {
+      "evalCase": {
+        "id": "footwear-canvas-sneakers",
+        "category": "footwear",
+        "productLabel": "帆布(キャンバス)アッパーのスニーカー",
+        "description": "Second footwear data point with a different chapter-64 outcome (textile upper instead of leather), to confirm the gap found in the boots case is systematic rather than a one-off.",
+        "initialRequest": {
+          "name": "キャンバススニーカー",
+          "description": "アッパーが帆布(キャンバス地)のスニーカーで、アウトソールはゴム製です。普段履き用です。"
+        },
+        "expectedStatus": "CLASSIFIED",
+        "expectedMissingQuestionKeys": [
+          "upper_material",
+          "covers_ankle",
+          "primary_use"
+        ],
+        "expectedHs": {
+          "level": "heading",
+          "code": "6404",
+          "basis": "HS_NOMENCLATURE_TEXT",
+          "reference": "HS heading 6404 text: 'Footwear with outer soles of rubber, plastics, leather or composition leather and uppers of textile materials' — textile (canvas) upper + rubber outer sole matches this heading directly."
+        },
+        "notes": "Same prediction as the leather boots case: category='unknown', generic clarifying question only, chapter 64 absent from the dataset. Keeping both footwear cases lets the final report say 'footwear is a structural gap' instead of relying on a single example."
+      },
+      "rounds": [
+        {
+          "status": "NEEDS_INFORMATION",
+          "category": "unknown",
+          "productFacts": {
+            "name": "キャンバススニーカー",
+            "description": "アッパーが帆布(キャンバス地)のスニーカーで、アウトソールはゴム製です。普段履き用です。",
+            "facts": []
+          },
+          "questions": [
+            {
+              "key": "product_category_hint",
+              "question": "商品の主な材質・原材料・用途のいずれかを教えてください(例: 布製の衣類、食品、化学薬品、機械など)。",
+              "reason": "商品のカテゴリーが判断できず、分類に必要な質問を決められませんでした。"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        }
+      ],
+      "final": {
+        "status": "NEEDS_INFORMATION",
+        "category": "unknown",
+        "productFacts": {
+          "name": "キャンバススニーカー",
+          "description": "アッパーが帆布(キャンバス地)のスニーカーで、アウトソールはゴム製です。普段履き用です。",
+          "facts": []
+        },
+        "questions": [
+          {
+            "key": "product_category_hint",
+            "question": "商品の主な材質・原材料・用途のいずれかを教えてください(例: 布製の衣類、食品、化学薬品、機械など)。",
+            "reason": "商品のカテゴリーが判断できず、分類に必要な質問を決められませんでした。"
+          }
+        ],
+        "datasetVersion": "HS2022-demo-v0.1",
+        "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+      },
+      "checks": [
+        {
+          "name": "status_as_expected",
+          "pass": false,
+          "detail": "expected CLASSIFIED, got NEEDS_INFORMATION"
+        },
+        {
+          "name": "no_overconfident_classification",
+          "pass": true,
+          "detail": "ok"
+        },
+        {
+          "name": "expected_questions_asked",
+          "pass": false,
+          "detail": "did not ask: upper_material, covers_ankle, primary_use"
+        },
+        {
+          "name": "expected_candidate_found",
+          "pass": false,
+          "detail": "expected 6404, candidates were: (none)"
+        },
+        {
+          "name": "facts_roundtrip",
+          "pass": true,
+          "detail": "all declared answers appear as USER_DECLARED facts in the final result"
+        },
+        {
+          "name": "evidence_present",
+          "pass": true,
+          "detail": "all candidates/questions carry reasons; dataset version+source present"
+        }
+      ],
+      "failureReasons": [
+        "INSUFFICIENT_QUESTIONS",
+        "HS_DATA_GAP"
+      ],
+      "critical": false
+    },
+    {
+      "evalCase": {
+        "id": "footwear-leather-ankle-boots",
+        "category": "footwear",
+        "productLabel": "本革製レディースアンクルブーツ",
+        "description": "Footwear has no category definition at all in this classifier yet. This case gives fully decisive information up front (upper material, sole material, ankle coverage) to see whether the gap is 'needs one more question' or 'cannot engage with this product family at all'.",
+        "initialRequest": {
+          "name": "レザーアンクルブーツ",
+          "description": "本革製の婦人用ショートブーツです。くるぶしを覆う丈で、アウトソールはラバー製です。"
+        },
+        "expectedStatus": "CLASSIFIED",
+        "expectedMissingQuestionKeys": [
+          "upper_material",
+          "covers_ankle",
+          "primary_use"
+        ],
+        "expectedHs": {
+          "level": "heading",
+          "code": "6403",
+          "basis": "HS_NOMENCLATURE_TEXT",
+          "reference": "HS Chapter 64 structure (confirmed via CBP 'What Every Member of the Trade Community Should Know About: Footwear'): footwear is classified first by the material comprising the greatest external surface area of the upper, then by outer sole material. Leather upper + rubber/plastics/leather outer sole = heading 6403."
+        },
+        "notes": "Prediction before running: detectCategory() has no footwear keywords in any category's matchKeywords list, so this will fall through to category='unknown' and get the single generic clarifying question ('product_category_hint') instead of footwear-specific questions — even though the description already contains everything needed to classify. Expect a hard fail on expected_questions_asked and expected_candidate_found (chapter 64 isn't in data/hs/*.json at all), but NOT an overconfidence failure — the tool should at least not invent an answer."
+      },
+      "rounds": [
+        {
+          "status": "NEEDS_INFORMATION",
+          "category": "unknown",
+          "productFacts": {
+            "name": "レザーアンクルブーツ",
+            "description": "本革製の婦人用ショートブーツです。くるぶしを覆う丈で、アウトソールはラバー製です。",
+            "facts": []
+          },
+          "questions": [
+            {
+              "key": "product_category_hint",
+              "question": "商品の主な材質・原材料・用途のいずれかを教えてください(例: 布製の衣類、食品、化学薬品、機械など)。",
+              "reason": "商品のカテゴリーが判断できず、分類に必要な質問を決められませんでした。"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        }
+      ],
+      "final": {
+        "status": "NEEDS_INFORMATION",
+        "category": "unknown",
+        "productFacts": {
+          "name": "レザーアンクルブーツ",
+          "description": "本革製の婦人用ショートブーツです。くるぶしを覆う丈で、アウトソールはラバー製です。",
+          "facts": []
+        },
+        "questions": [
+          {
+            "key": "product_category_hint",
+            "question": "商品の主な材質・原材料・用途のいずれかを教えてください(例: 布製の衣類、食品、化学薬品、機械など)。",
+            "reason": "商品のカテゴリーが判断できず、分類に必要な質問を決められませんでした。"
+          }
+        ],
+        "datasetVersion": "HS2022-demo-v0.1",
+        "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+      },
+      "checks": [
+        {
+          "name": "status_as_expected",
+          "pass": false,
+          "detail": "expected CLASSIFIED, got NEEDS_INFORMATION"
+        },
+        {
+          "name": "no_overconfident_classification",
+          "pass": true,
+          "detail": "ok"
+        },
+        {
+          "name": "expected_questions_asked",
+          "pass": false,
+          "detail": "did not ask: upper_material, covers_ankle, primary_use"
+        },
+        {
+          "name": "expected_candidate_found",
+          "pass": false,
+          "detail": "expected 6403, candidates were: (none)"
+        },
+        {
+          "name": "facts_roundtrip",
+          "pass": true,
+          "detail": "all declared answers appear as USER_DECLARED facts in the final result"
+        },
+        {
+          "name": "evidence_present",
+          "pass": true,
+          "detail": "all candidates/questions carry reasons; dataset version+source present"
+        }
+      ],
+      "failureReasons": [
+        "INSUFFICIENT_QUESTIONS",
+        "HS_DATA_GAP"
+      ],
+      "critical": false
+    },
+    {
+      "evalCase": {
+        "id": "machinery-parts-ball-bearing",
+        "category": "machinery_parts",
+        "productLabel": "汎用ボールベアリング(深溝玉軸受)",
+        "description": "A general-use part explicitly NOT dedicated to one machine. Unlike the footwear/electronics/cosmetics cases, this one DOES contain a machinery-category trigger word ('機械'), so category detection should actually work — but the category's chapter scope (only chapter 85) is wrong for this product (bearings are chapter 84), which should surface a different kind of gap.",
+        "initialRequest": {
+          "name": "深溝玉軸受(ボールベアリング)",
+          "description": "産業機械のシャフトを支持するための汎用ボールベアリングです。特定の完成機械専用ではなく、様々な機械に組み込み可能です。"
+        },
+        "followUpAnswers": {
+          "function": "回転軸を支持し摩擦を減らす汎用部品",
+          "complete_or_part": "部品(汎用、特定機械専用ではない)"
+        },
+        "expectedStatus": "CLASSIFIED",
+        "expectedCategory": "machinery",
+        "expectedMissingQuestionKeys": [
+          "function",
+          "complete_or_part"
+        ],
+        "expectedHs": {
+          "level": "subheading",
+          "code": "8482.10",
+          "basis": "RESEARCHED",
+          "reference": "HS heading 8482 ('Ball or roller bearings, and parts thereof'); subheading 8482.10 ('Ball bearings') — confirmed across multiple classification guides (flexport, dripcapital, freightamigo) as the standard code, independent of which machine the bearing eventually goes into (general-use parts like standard bearings are classified in their own heading rather than with the host machine)."
+        },
+        "notes": "Prediction before running: category detection should correctly land on 'machinery' (the word '機械' appears three times) — a useful contrast to the footwear/electronics/cosmetics cases. But the machinery category's chapterCodes is hardcoded to ['85'] only, modeling exactly one heading (8509, domestic appliances). Bearings are chapter 84, which the classifier's machinery category doesn't search at all. Expect correct category + correct questions, but zero candidates (HS_DATA_GAP) — a cleaner, more isolated finding than the other gap cases, and evidence that 'machinery' as currently scoped really means 'one specific type of small appliance', not machinery/parts broadly."
+      },
+      "rounds": [
+        {
+          "status": "NEEDS_INFORMATION",
+          "category": "machinery",
+          "productFacts": {
+            "name": "深溝玉軸受(ボールベアリング)",
+            "description": "産業機械のシャフトを支持するための汎用ボールベアリングです。特定の完成機械専用ではなく、様々な機械に組み込み可能です。",
+            "facts": []
+          },
+          "questions": [
+            {
+              "key": "function",
+              "question": "この機械/機器は何をするものですか?主な機能を教えてください。",
+              "reason": "機能によって該当する類・項が変わります。"
+            },
+            {
+              "key": "complete_or_part",
+              "question": "完成品ですか、それとも部品ですか?",
+              "reason": "完成品か部品かで分類の考え方が変わります。"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        },
+        {
+          "status": "NEEDS_REVIEW",
+          "category": "machinery",
+          "productFacts": {
+            "name": "深溝玉軸受(ボールベアリング)",
+            "description": "産業機械のシャフトを支持するための汎用ボールベアリングです。特定の完成機械専用ではなく、様々な機械に組み込み可能です。",
+            "facts": [
+              {
+                "key": "function",
+                "value": "回転軸を支持し摩擦を減らす汎用部品",
+                "source": "USER_DECLARED"
+              },
+              {
+                "key": "complete_or_part",
+                "value": "部品(汎用、特定機械専用ではない)",
+                "source": "USER_DECLARED"
+              }
+            ]
+          },
+          "notes": [
+            "データセット内に一致するHS候補が見つかりませんでした。"
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        }
+      ],
+      "final": {
+        "status": "NEEDS_REVIEW",
+        "category": "machinery",
+        "productFacts": {
+          "name": "深溝玉軸受(ボールベアリング)",
+          "description": "産業機械のシャフトを支持するための汎用ボールベアリングです。特定の完成機械専用ではなく、様々な機械に組み込み可能です。",
+          "facts": [
+            {
+              "key": "function",
+              "value": "回転軸を支持し摩擦を減らす汎用部品",
+              "source": "USER_DECLARED"
+            },
+            {
+              "key": "complete_or_part",
+              "value": "部品(汎用、特定機械専用ではない)",
+              "source": "USER_DECLARED"
+            }
+          ]
+        },
+        "notes": [
+          "データセット内に一致するHS候補が見つかりませんでした。"
+        ],
+        "datasetVersion": "HS2022-demo-v0.1",
+        "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+      },
+      "checks": [
+        {
+          "name": "status_as_expected",
+          "pass": false,
+          "detail": "expected CLASSIFIED, got NEEDS_REVIEW"
+        },
+        {
+          "name": "no_overconfident_classification",
+          "pass": true,
+          "detail": "ok"
+        },
+        {
+          "name": "category_as_expected",
+          "pass": true,
+          "detail": "routed to machinery as expected"
+        },
+        {
+          "name": "expected_questions_asked",
+          "pass": true,
+          "detail": "asked all of: function, complete_or_part"
+        },
+        {
+          "name": "expected_candidate_found",
+          "pass": false,
+          "detail": "expected 8482.10, candidates were: (none)"
+        },
+        {
+          "name": "facts_roundtrip",
+          "pass": true,
+          "detail": "all declared answers appear as USER_DECLARED facts in the final result"
+        },
+        {
+          "name": "evidence_present",
+          "pass": true,
+          "detail": "all candidates/questions carry reasons; dataset version+source present"
+        }
+      ],
+      "failureReasons": [
+        "HS_DATA_GAP"
+      ],
+      "critical": false
+    },
+    {
+      "evalCase": {
+        "id": "machinery-parts-motor-brush",
+        "category": "machinery_parts",
+        "productLabel": "電動モーター用カーボンブラシ(専用部品)",
+        "description": "The opposite of the bearing case: a part explicitly DEDICATED to one machine type, echoing the original design brief's own example question ('専用部品ですか？'). This case intentionally does not claim a confident expected HS code — dedicated-part classification depends on rules (which heading the host machine falls under) that weren't verified against a specific citation here, so it's marked UNKNOWN rather than guessed. The point of this case is to check the question-asking behavior, not to grade a fabricated answer.",
+        "initialRequest": {
+          "name": "モーター用カーボンブラシ",
+          "description": "電動モーター専用に設計された交換用カーボンブラシです。汎用品ではなく、特定モデルの純正部品として販売しています。"
+        },
+        "followUpAnswers": {
+          "function": "モーター内で整流子と接触し電流を通す消耗部品",
+          "complete_or_part": "部品(特定モデル専用の純正品)"
+        },
+        "expectedStatus": "NEEDS_REVIEW",
+        "expectedCategory": "machinery",
+        "expectedMissingQuestionKeys": [
+          "function",
+          "complete_or_part"
+        ],
+        "expectedHs": {
+          "level": "unknown",
+          "basis": "UNKNOWN",
+          "reference": "Not verified against an official source in this validation round. Real HS practice treats dedicated parts differently from general-use parts (per Section XVI notes), sometimes classifying them with the host machine's heading rather than a standalone parts heading — but pinning the exact code needs a specific ruling or Explanatory Note lookup this round didn't do. Left UNKNOWN deliberately rather than guessed, per the validation brief's own instruction."
+        },
+        "notes": "Prediction before running: category should correctly resolve to 'machinery' ('モーター' and '電動' both appear), and it should ask exactly the two questions the original design brief itself proposed for this scenario (function, complete/part) — this is expected to be one of the cleaner successes in the set, since machinery's required-fact questions map well onto genuinely dedicated-part products. Candidate search will still fail (chapter 85 in the dataset only models 8509 domestic appliances, not any parts heading), which is graded as NEEDS_REVIEW here, not as a wrong-HS failure, since no expected code is claimed."
+      },
+      "rounds": [
+        {
+          "status": "NEEDS_INFORMATION",
+          "category": "machinery",
+          "productFacts": {
+            "name": "モーター用カーボンブラシ",
+            "description": "電動モーター専用に設計された交換用カーボンブラシです。汎用品ではなく、特定モデルの純正部品として販売しています。",
+            "facts": []
+          },
+          "questions": [
+            {
+              "key": "function",
+              "question": "この機械/機器は何をするものですか?主な機能を教えてください。",
+              "reason": "機能によって該当する類・項が変わります。"
+            },
+            {
+              "key": "complete_or_part",
+              "question": "完成品ですか、それとも部品ですか?",
+              "reason": "完成品か部品かで分類の考え方が変わります。"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        },
+        {
+          "status": "NEEDS_REVIEW",
+          "category": "machinery",
+          "productFacts": {
+            "name": "モーター用カーボンブラシ",
+            "description": "電動モーター専用に設計された交換用カーボンブラシです。汎用品ではなく、特定モデルの純正部品として販売しています。",
+            "facts": [
+              {
+                "key": "function",
+                "value": "モーター内で整流子と接触し電流を通す消耗部品",
+                "source": "USER_DECLARED"
+              },
+              {
+                "key": "complete_or_part",
+                "value": "部品(特定モデル専用の純正品)",
+                "source": "USER_DECLARED"
+              }
+            ]
+          },
+          "notes": [
+            "データセット内に一致するHS候補が見つかりませんでした。"
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        }
+      ],
+      "final": {
+        "status": "NEEDS_REVIEW",
+        "category": "machinery",
+        "productFacts": {
+          "name": "モーター用カーボンブラシ",
+          "description": "電動モーター専用に設計された交換用カーボンブラシです。汎用品ではなく、特定モデルの純正部品として販売しています。",
+          "facts": [
+            {
+              "key": "function",
+              "value": "モーター内で整流子と接触し電流を通す消耗部品",
+              "source": "USER_DECLARED"
+            },
+            {
+              "key": "complete_or_part",
+              "value": "部品(特定モデル専用の純正品)",
+              "source": "USER_DECLARED"
+            }
+          ]
+        },
+        "notes": [
+          "データセット内に一致するHS候補が見つかりませんでした。"
+        ],
+        "datasetVersion": "HS2022-demo-v0.1",
+        "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+      },
+      "checks": [
+        {
+          "name": "status_as_expected",
+          "pass": true,
+          "detail": "expected NEEDS_REVIEW, got NEEDS_REVIEW"
+        },
+        {
+          "name": "no_overconfident_classification",
+          "pass": true,
+          "detail": "ok"
+        },
+        {
+          "name": "category_as_expected",
+          "pass": true,
+          "detail": "routed to machinery as expected"
+        },
+        {
+          "name": "expected_questions_asked",
+          "pass": true,
+          "detail": "asked all of: function, complete_or_part"
+        },
+        {
+          "name": "expected_candidate_found",
+          "pass": true,
+          "detail": "n/a — expectedHs basis is UNKNOWN, not graded"
+        },
+        {
+          "name": "facts_roundtrip",
+          "pass": true,
+          "detail": "all declared answers appear as USER_DECLARED facts in the final result"
+        },
+        {
+          "name": "evidence_present",
+          "pass": true,
+          "detail": "all candidates/questions carry reasons; dataset version+source present"
+        }
+      ],
+      "failureReasons": [],
+      "critical": false
+    },
+    {
+      "evalCase": {
+        "id": "processed-food-chocolate-bar",
+        "category": "processed_food",
+        "productLabel": "ミルクチョコレートバー(カカオ分40%)",
+        "description": "Second processed-food data point in a different chapter (18, not 19), to see if the food-category gap found with instant noodles is systematic. Cocoa content is exactly the kind of ratio the classifier should ask about, per the original design brief's own food-category example.",
+        "initialRequest": {
+          "name": "ミルクチョコレートバー",
+          "description": "カカオ分40%のミルクチョコレートを板状に成形したお菓子です。ナッツなどのフィリングは入っていません。"
+        },
+        "expectedStatus": "CLASSIFIED",
+        "expectedCategory": "food",
+        "expectedMissingQuestionKeys": [
+          "ingredients",
+          "processing_method"
+        ],
+        "expectedHs": {
+          "level": "subheading",
+          "code": "1806.32",
+          "basis": "RESEARCHED",
+          "reference": "HS heading 1806 ('Chocolate and other food preparations containing cocoa'); subheading 1806.32 covers chocolate in blocks/slabs/bars, not filled — confirmed by multiple classification guides (credlix, freightamigo, datamyne) as the standard code for a plain (unfilled) chocolate bar."
+        },
+        "notes": "Prediction before running: same structural gap as instant noodles — 'チョコレート'/'お菓子' don't match any food matchKeyword, so category likely resolves to 'unknown', and chapter 18 doesn't exist in the dataset regardless. Keeping this alongside the noodle case turns one example into a pattern: the food category, as currently defined, effectively only recognizes tea/coffee-adjacent products, not food broadly."
+      },
+      "rounds": [
+        {
+          "status": "NEEDS_INFORMATION",
+          "category": "unknown",
+          "productFacts": {
+            "name": "ミルクチョコレートバー",
+            "description": "カカオ分40%のミルクチョコレートを板状に成形したお菓子です。ナッツなどのフィリングは入っていません。",
+            "facts": []
+          },
+          "questions": [
+            {
+              "key": "product_category_hint",
+              "question": "商品の主な材質・原材料・用途のいずれかを教えてください(例: 布製の衣類、食品、化学薬品、機械など)。",
+              "reason": "商品のカテゴリーが判断できず、分類に必要な質問を決められませんでした。"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        }
+      ],
+      "final": {
+        "status": "NEEDS_INFORMATION",
+        "category": "unknown",
+        "productFacts": {
+          "name": "ミルクチョコレートバー",
+          "description": "カカオ分40%のミルクチョコレートを板状に成形したお菓子です。ナッツなどのフィリングは入っていません。",
+          "facts": []
+        },
+        "questions": [
+          {
+            "key": "product_category_hint",
+            "question": "商品の主な材質・原材料・用途のいずれかを教えてください(例: 布製の衣類、食品、化学薬品、機械など)。",
+            "reason": "商品のカテゴリーが判断できず、分類に必要な質問を決められませんでした。"
+          }
+        ],
+        "datasetVersion": "HS2022-demo-v0.1",
+        "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+      },
+      "checks": [
+        {
+          "name": "status_as_expected",
+          "pass": false,
+          "detail": "expected CLASSIFIED, got NEEDS_INFORMATION"
+        },
+        {
+          "name": "no_overconfident_classification",
+          "pass": true,
+          "detail": "ok"
+        },
+        {
+          "name": "category_as_expected",
+          "pass": false,
+          "detail": "expected category food, routed to unknown instead"
+        },
+        {
+          "name": "expected_questions_asked",
+          "pass": false,
+          "detail": "did not ask: ingredients, processing_method"
+        },
+        {
+          "name": "expected_candidate_found",
+          "pass": false,
+          "detail": "expected 1806.32, candidates were: (none)"
+        },
+        {
+          "name": "facts_roundtrip",
+          "pass": true,
+          "detail": "all declared answers appear as USER_DECLARED facts in the final result"
+        },
+        {
+          "name": "evidence_present",
+          "pass": true,
+          "detail": "all candidates/questions carry reasons; dataset version+source present"
+        }
+      ],
+      "failureReasons": [
+        "RULE_INTERPRETATION_ERROR",
+        "INSUFFICIENT_QUESTIONS",
+        "HS_DATA_GAP"
+      ],
+      "critical": false
+    },
+    {
+      "evalCase": {
+        "id": "processed-food-instant-noodles",
+        "category": "processed_food",
+        "productLabel": "即席カップ麺",
+        "description": "Tests whether the 'food' category actually covers common processed food, and whether ingredient-ratio questions get asked, using natural product description language (not the word '食品' itself).",
+        "initialRequest": {
+          "name": "即席カップ麺",
+          "description": "お湯を注ぐだけで食べられるインスタントラーメンです。乾燥麺とスープの素が入っています。"
+        },
+        "expectedStatus": "CLASSIFIED",
+        "expectedCategory": "food",
+        "expectedMissingQuestionKeys": [
+          "ingredients",
+          "processing_method"
+        ],
+        "expectedHs": {
+          "level": "subheading",
+          "code": "1902.30",
+          "basis": "RESEARCHED",
+          "reference": "HS heading 1902 ('Pasta...'); subheading 1902.30 ('Other pasta') is the standard classification for instant/cup noodles per US CBP ruling NY 803646 ('tariff classification of instant noodle preparations from Thailand') and multiple trade guides — pre-cooked noodles with a seasoning packet still fall here."
+        },
+        "notes": "Prediction before running: this is expected to fail even category detection. The 'food' category's matchKeywords are tea/beverage-centric (['茶','お茶','緑茶','紅茶','食品','食料品','飲料','エキス',...]) and none of them appear in ordinary instant-noodle phrasing — '食べられる' contains '食' but not the literal 2-character token '食品'. So this likely falls to category='unknown', on top of heading 1902 not existing in the dataset at all (chapters 09/21 only). Two independent gaps compounding on an extremely common, everyday food product is a meaningful finding about how narrow the current 'food' category really is."
+      },
+      "rounds": [
+        {
+          "status": "NEEDS_INFORMATION",
+          "category": "unknown",
+          "productFacts": {
+            "name": "即席カップ麺",
+            "description": "お湯を注ぐだけで食べられるインスタントラーメンです。乾燥麺とスープの素が入っています。",
+            "facts": []
+          },
+          "questions": [
+            {
+              "key": "product_category_hint",
+              "question": "商品の主な材質・原材料・用途のいずれかを教えてください(例: 布製の衣類、食品、化学薬品、機械など)。",
+              "reason": "商品のカテゴリーが判断できず、分類に必要な質問を決められませんでした。"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        }
+      ],
+      "final": {
+        "status": "NEEDS_INFORMATION",
+        "category": "unknown",
+        "productFacts": {
+          "name": "即席カップ麺",
+          "description": "お湯を注ぐだけで食べられるインスタントラーメンです。乾燥麺とスープの素が入っています。",
+          "facts": []
+        },
+        "questions": [
+          {
+            "key": "product_category_hint",
+            "question": "商品の主な材質・原材料・用途のいずれかを教えてください(例: 布製の衣類、食品、化学薬品、機械など)。",
+            "reason": "商品のカテゴリーが判断できず、分類に必要な質問を決められませんでした。"
+          }
+        ],
+        "datasetVersion": "HS2022-demo-v0.1",
+        "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+      },
+      "checks": [
+        {
+          "name": "status_as_expected",
+          "pass": false,
+          "detail": "expected CLASSIFIED, got NEEDS_INFORMATION"
+        },
+        {
+          "name": "no_overconfident_classification",
+          "pass": true,
+          "detail": "ok"
+        },
+        {
+          "name": "category_as_expected",
+          "pass": false,
+          "detail": "expected category food, routed to unknown instead"
+        },
+        {
+          "name": "expected_questions_asked",
+          "pass": false,
+          "detail": "did not ask: ingredients, processing_method"
+        },
+        {
+          "name": "expected_candidate_found",
+          "pass": false,
+          "detail": "expected 1902.30, candidates were: (none)"
+        },
+        {
+          "name": "facts_roundtrip",
+          "pass": true,
+          "detail": "all declared answers appear as USER_DECLARED facts in the final result"
+        },
+        {
+          "name": "evidence_present",
+          "pass": true,
+          "detail": "all candidates/questions carry reasons; dataset version+source present"
+        }
+      ],
+      "failureReasons": [
+        "RULE_INTERPRETATION_ERROR",
+        "INSUFFICIENT_QUESTIONS",
+        "HS_DATA_GAP"
+      ],
+      "critical": false
+    },
+    {
+      "evalCase": {
+        "id": "tea-green-tea-leaf",
+        "category": "tea",
+        "productLabel": "緑茶葉(リーフ、未加工)",
+        "description": "Baseline easy case: plain green tea leaf with all decisive facts declared up front. Sanity-checks that the classifier doesn't over-ask when it already has enough.",
+        "initialRequest": {
+          "name": "緑茶ティーバッグ",
+          "description": "静岡県産の緑茶葉を使用したティーバッグ商品です。1箱20g入りで小分け包装(3kg以下)しています。",
+          "facts": [
+            {
+              "key": "ingredients",
+              "value": "緑茶葉",
+              "source": "USER_DECLARED"
+            },
+            {
+              "key": "processing_method",
+              "value": "不発酵・乾燥",
+              "source": "USER_DECLARED"
+            }
+          ]
+        },
+        "expectedStatus": "CLASSIFIED",
+        "expectedHs": {
+          "level": "subheading",
+          "code": "0902.10",
+          "basis": "HS_NOMENCLATURE_TEXT",
+          "reference": "HS heading 0902 ('Tea, whether or not flavoured'); subheading 0902.10 covers green tea (not fermented) in immediate packings of a content not exceeding 3 kg — this is the literal text of the WCO nomenclature, not a case-specific ruling."
+        },
+        "notes": "This is the easy control case. If this fails, something regressed in the basic pipeline, not in a genuinely hard classification judgment."
+      },
+      "rounds": [
+        {
+          "status": "CLASSIFIED",
+          "category": "food",
+          "productFacts": {
+            "name": "緑茶ティーバッグ",
+            "description": "静岡県産の緑茶葉を使用したティーバッグ商品です。1箱20g入りで小分け包装(3kg以下)しています。",
+            "facts": [
+              {
+                "key": "ingredients",
+                "value": "緑茶葉",
+                "source": "USER_DECLARED"
+              },
+              {
+                "key": "processing_method",
+                "value": "不発酵・乾燥",
+                "source": "USER_DECLARED"
+              }
+            ]
+          },
+          "candidates": [
+            {
+              "code": "0902.10",
+              "rank": 1,
+              "reason": "製品情報中の「緑茶、不発酵、3kg以下」が0902.10(緑茶(不発酵のものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。))の分類基準と一致すると判断しました。",
+              "confidence": 0.85,
+              "headingDescription": "緑茶(不発酵のものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。)"
+            },
+            {
+              "code": "0902.20",
+              "rank": 2,
+              "reason": "製品情報中の「緑茶、不発酵」が0902.20(緑茶(不発酵のものに限るものとし、その他のもの))の分類基準と一致すると判断しました。",
+              "confidence": 0.7,
+              "headingDescription": "緑茶(不発酵のものに限るものとし、その他のもの)"
+            },
+            {
+              "code": "0902.30",
+              "rank": 3,
+              "reason": "製品情報中の「発酵、3kg以下」が0902.30(紅茶(発酵させてあるものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。))の分類基準と一致すると判断しました。",
+              "confidence": 0.7,
+              "headingDescription": "紅茶(発酵させてあるものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。)"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        }
+      ],
+      "final": {
+        "status": "CLASSIFIED",
+        "category": "food",
+        "productFacts": {
+          "name": "緑茶ティーバッグ",
+          "description": "静岡県産の緑茶葉を使用したティーバッグ商品です。1箱20g入りで小分け包装(3kg以下)しています。",
+          "facts": [
+            {
+              "key": "ingredients",
+              "value": "緑茶葉",
+              "source": "USER_DECLARED"
+            },
+            {
+              "key": "processing_method",
+              "value": "不発酵・乾燥",
+              "source": "USER_DECLARED"
+            }
+          ]
+        },
+        "candidates": [
+          {
+            "code": "0902.10",
+            "rank": 1,
+            "reason": "製品情報中の「緑茶、不発酵、3kg以下」が0902.10(緑茶(不発酵のものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。))の分類基準と一致すると判断しました。",
+            "confidence": 0.85,
+            "headingDescription": "緑茶(不発酵のものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。)"
+          },
+          {
+            "code": "0902.20",
+            "rank": 2,
+            "reason": "製品情報中の「緑茶、不発酵」が0902.20(緑茶(不発酵のものに限るものとし、その他のもの))の分類基準と一致すると判断しました。",
+            "confidence": 0.7,
+            "headingDescription": "緑茶(不発酵のものに限るものとし、その他のもの)"
+          },
+          {
+            "code": "0902.30",
+            "rank": 3,
+            "reason": "製品情報中の「発酵、3kg以下」が0902.30(紅茶(発酵させてあるものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。))の分類基準と一致すると判断しました。",
+            "confidence": 0.7,
+            "headingDescription": "紅茶(発酵させてあるものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。)"
+          }
+        ],
+        "datasetVersion": "HS2022-demo-v0.1",
+        "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+      },
+      "checks": [
+        {
+          "name": "status_as_expected",
+          "pass": true,
+          "detail": "expected CLASSIFIED, got CLASSIFIED"
+        },
+        {
+          "name": "no_overconfident_classification",
+          "pass": true,
+          "detail": "ok"
+        },
+        {
+          "name": "expected_questions_asked",
+          "pass": true,
+          "detail": "n/a — no expected questions declared"
+        },
+        {
+          "name": "expected_candidate_found",
+          "pass": true,
+          "detail": "found 0902.10 among candidates: 0902.10, 0902.20, 0902.30"
+        },
+        {
+          "name": "top_candidate_matches_expected",
+          "pass": true,
+          "detail": "Recommended candidate (0902.10) matches expected 0902.10"
+        },
+        {
+          "name": "facts_roundtrip",
+          "pass": true,
+          "detail": "all declared answers appear as USER_DECLARED facts in the final result"
+        },
+        {
+          "name": "evidence_present",
+          "pass": true,
+          "detail": "all candidates/questions carry reasons; dataset version+source present"
+        }
+      ],
+      "failureReasons": [],
+      "critical": false
+    },
+    {
+      "evalCase": {
+        "id": "tea-instant-extract",
+        "category": "tea",
+        "productLabel": "インスタントティー(紅茶抽出物の粉末)",
+        "description": "The mirror-image case of matcha: an actual tea EXTRACT reduced to powder, which the HS treats completely differently (heading 2101, not 0902) even though both are 'tea, as a powder'. Tests whether the tool can tell leaf/powder tea apart from extract/instant tea when the user's own words include the giveaway vocabulary.",
+        "initialRequest": {
+          "name": "インスタントティー(粉末)",
+          "description": "紅茶の抽出液を乾燥させて粉末状にしたインスタントティーです。お湯に溶かして飲みます。"
+        },
+        "followUpAnswers": {
+          "ingredients": "紅茶抽出物(茶エキス)100%",
+          "processing_method": "抽出・乾燥・粉末化(インスタント化)"
+        },
+        "expectedStatus": "CLASSIFIED",
+        "expectedCategory": "food",
+        "expectedMissingQuestionKeys": [
+          "ingredients",
+          "processing_method"
+        ],
+        "expectedHs": {
+          "level": "subheading",
+          "code": "2101.20",
+          "basis": "RESEARCHED",
+          "reference": "US CBP ruling NY E87596 ('The tariff classification of Instant Tea from India') and HTS/HS heading 2101 text ('Extracts, essences and concentrates of coffee, tea or maté...') both confirm instant/soluble tea powder is 2101.20, not 0902."
+        },
+        "notes": "Prediction before running: unlike matcha, this description naturally contains '紅茶', '茶エキス' and 'インスタント' — all of which are literally in our dataset's 2101.20/heading-2101 keyword lists. Expect this one to actually work, in contrast to the matcha case. If it does, that's a useful positive data point showing the retrieval failure on matcha is about vocabulary coverage, not a fundamental inability to separate leaf tea from extract."
+      },
+      "rounds": [
+        {
+          "status": "NEEDS_INFORMATION",
+          "category": "food",
+          "productFacts": {
+            "name": "インスタントティー(粉末)",
+            "description": "紅茶の抽出液を乾燥させて粉末状にしたインスタントティーです。お湯に溶かして飲みます。",
+            "facts": []
+          },
+          "questions": [
+            {
+              "key": "ingredients",
+              "question": "主な原材料は何ですか?",
+              "reason": "食品の分類は原材料によって大きく変わるため必要です。"
+            },
+            {
+              "key": "processing_method",
+              "question": "どのような加工がされていますか?(例: 発酵、乾燥、粉末化)",
+              "reason": "加工方法(発酵の有無など)によって該当する号が変わります。"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        },
+        {
+          "status": "CLASSIFIED",
+          "category": "food",
+          "productFacts": {
+            "name": "インスタントティー(粉末)",
+            "description": "紅茶の抽出液を乾燥させて粉末状にしたインスタントティーです。お湯に溶かして飲みます。",
+            "facts": [
+              {
+                "key": "ingredients",
+                "value": "紅茶抽出物(茶エキス)100%",
+                "source": "USER_DECLARED"
+              },
+              {
+                "key": "processing_method",
+                "value": "抽出・乾燥・粉末化(インスタント化)",
+                "source": "USER_DECLARED"
+              }
+            ]
+          },
+          "candidates": [
+            {
+              "code": "2101.20",
+              "rank": 1,
+              "reason": "製品情報中の「茶エキス、インスタントティー」が2101.20(茶又はマテのエキス、エッセンス及び濃縮物並びにこれらを主材料とする調製品)の分類基準と一致すると判断しました。",
+              "confidence": 0.7,
+              "headingDescription": "茶又はマテのエキス、エッセンス及び濃縮物並びにこれらを主材料とする調製品"
+            },
+            {
+              "code": "0902.30",
+              "rank": 2,
+              "reason": "製品情報中の「紅茶」が0902.30(紅茶(発酵させてあるものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。))の分類基準と一致すると判断しました。",
+              "confidence": 0.55,
+              "headingDescription": "紅茶(発酵させてあるものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。)"
+            },
+            {
+              "code": "0902.40",
+              "rank": 3,
+              "reason": "製品情報中の「紅茶」が0902.40(紅茶(発酵させてあるものに限るものとし、その他のもの))の分類基準と一致すると判断しました。",
+              "confidence": 0.55,
+              "headingDescription": "紅茶(発酵させてあるものに限るものとし、その他のもの)"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        }
+      ],
+      "final": {
+        "status": "CLASSIFIED",
+        "category": "food",
+        "productFacts": {
+          "name": "インスタントティー(粉末)",
+          "description": "紅茶の抽出液を乾燥させて粉末状にしたインスタントティーです。お湯に溶かして飲みます。",
+          "facts": [
+            {
+              "key": "ingredients",
+              "value": "紅茶抽出物(茶エキス)100%",
+              "source": "USER_DECLARED"
+            },
+            {
+              "key": "processing_method",
+              "value": "抽出・乾燥・粉末化(インスタント化)",
+              "source": "USER_DECLARED"
+            }
+          ]
+        },
+        "candidates": [
+          {
+            "code": "2101.20",
+            "rank": 1,
+            "reason": "製品情報中の「茶エキス、インスタントティー」が2101.20(茶又はマテのエキス、エッセンス及び濃縮物並びにこれらを主材料とする調製品)の分類基準と一致すると判断しました。",
+            "confidence": 0.7,
+            "headingDescription": "茶又はマテのエキス、エッセンス及び濃縮物並びにこれらを主材料とする調製品"
+          },
+          {
+            "code": "0902.30",
+            "rank": 2,
+            "reason": "製品情報中の「紅茶」が0902.30(紅茶(発酵させてあるものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。))の分類基準と一致すると判断しました。",
+            "confidence": 0.55,
+            "headingDescription": "紅茶(発酵させてあるものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。)"
+          },
+          {
+            "code": "0902.40",
+            "rank": 3,
+            "reason": "製品情報中の「紅茶」が0902.40(紅茶(発酵させてあるものに限るものとし、その他のもの))の分類基準と一致すると判断しました。",
+            "confidence": 0.55,
+            "headingDescription": "紅茶(発酵させてあるものに限るものとし、その他のもの)"
+          }
+        ],
+        "datasetVersion": "HS2022-demo-v0.1",
+        "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+      },
+      "checks": [
+        {
+          "name": "status_as_expected",
+          "pass": true,
+          "detail": "expected CLASSIFIED, got CLASSIFIED"
+        },
+        {
+          "name": "no_overconfident_classification",
+          "pass": true,
+          "detail": "ok"
+        },
+        {
+          "name": "category_as_expected",
+          "pass": true,
+          "detail": "routed to food as expected"
+        },
+        {
+          "name": "expected_questions_asked",
+          "pass": true,
+          "detail": "asked all of: ingredients, processing_method"
+        },
+        {
+          "name": "expected_candidate_found",
+          "pass": true,
+          "detail": "found 2101.20 among candidates: 2101.20, 0902.30, 0902.40"
+        },
+        {
+          "name": "top_candidate_matches_expected",
+          "pass": true,
+          "detail": "Recommended candidate (2101.20) matches expected 2101.20"
+        },
+        {
+          "name": "facts_roundtrip",
+          "pass": true,
+          "detail": "all declared answers appear as USER_DECLARED facts in the final result"
+        },
+        {
+          "name": "evidence_present",
+          "pass": true,
+          "detail": "all candidates/questions carry reasons; dataset version+source present"
+        }
+      ],
+      "failureReasons": [],
+      "critical": false
+    },
+    {
+      "evalCase": {
+        "id": "tea-matcha-powder",
+        "category": "tea",
+        "productLabel": "抹茶パウダー(碾茶を石臼で挽いたもの)",
+        "description": "Probes whether processing state changes the answer, using natural (not keyword-stuffed) Japanese a real seller would write. Matcha is ground tea leaf, not an extract, so it should stay in HS 0902 like plain green tea — but the description never says '緑茶' or '不発酵' verbatim.",
+        "initialRequest": {
+          "name": "抹茶パウダー",
+          "description": "京都府産の碾茶(てん茶)を石臼で挽いた抹茶パウダーです。お菓子作りや飲用に使用します。"
+        },
+        "followUpAnswers": {
+          "ingredients": "碾茶(てん茶)100%",
+          "processing_method": "石臼で挽いて微粉末にしたもの(浸出液の乾燥品ではありません)"
+        },
+        "expectedStatus": "CLASSIFIED",
+        "expectedCategory": "food",
+        "expectedMissingQuestionKeys": [
+          "ingredients",
+          "processing_method"
+        ],
+        "expectedHs": {
+          "level": "subheading",
+          "code": "0902.10",
+          "basis": "RESEARCHED",
+          "reference": "Matcha is ground green tea leaf, not a tea extract/essence/concentrate — multiple import-tariff references (e.g. tariffs.wove.com HTS 0902.10.10.15 'Certified Organic Matcha Green Tea Powder') classify matcha under 0902.10, explicitly distinguishing it from heading 2101 (tea extracts), which applies only to actual soluble/instant tea extracts."
+        },
+        "notes": "Prediction before running: category detection should work (plain '茶' keyword is common to 抹茶/碾茶). The real risk is candidate retrieval — our dataset's subheading keywords for 0902.10 are literally ['緑茶','不発酵','3kg以下','green tea','unfermented'], none of which appear in natural matcha phrasing (which says '抹茶'/'碾茶', not '緑茶'; and describes powder-making, not fermentation state). If retrieval comes back empty, that's a real, honest weakness — the demo dataset's keyword list only recognizes the exact vocabulary of its own descriptions, not domain synonyms a real user would actually type."
+      },
+      "rounds": [
+        {
+          "status": "NEEDS_INFORMATION",
+          "category": "food",
+          "productFacts": {
+            "name": "抹茶パウダー",
+            "description": "京都府産の碾茶(てん茶)を石臼で挽いた抹茶パウダーです。お菓子作りや飲用に使用します。",
+            "facts": []
+          },
+          "questions": [
+            {
+              "key": "ingredients",
+              "question": "主な原材料は何ですか?",
+              "reason": "食品の分類は原材料によって大きく変わるため必要です。"
+            },
+            {
+              "key": "processing_method",
+              "question": "どのような加工がされていますか?(例: 発酵、乾燥、粉末化)",
+              "reason": "加工方法(発酵の有無など)によって該当する号が変わります。"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        },
+        {
+          "status": "CLASSIFIED",
+          "category": "food",
+          "productFacts": {
+            "name": "抹茶パウダー",
+            "description": "京都府産の碾茶(てん茶)を石臼で挽いた抹茶パウダーです。お菓子作りや飲用に使用します。",
+            "facts": [
+              {
+                "key": "ingredients",
+                "value": "碾茶(てん茶)100%",
+                "source": "USER_DECLARED"
+              },
+              {
+                "key": "processing_method",
+                "value": "石臼で挽いて微粉末にしたもの(浸出液の乾燥品ではありません)",
+                "source": "USER_DECLARED"
+              }
+            ]
+          },
+          "candidates": [
+            {
+              "code": "0902.10",
+              "rank": 1,
+              "reason": "製品情報中の「in」が0902.10(緑茶(不発酵のものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。))の分類基準と一致すると判断しました。",
+              "confidence": 0.55,
+              "headingDescription": "緑茶(不発酵のものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。)"
+            },
+            {
+              "code": "0902.30",
+              "rank": 2,
+              "reason": "製品情報中の「in」が0902.30(紅茶(発酵させてあるものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。))の分類基準と一致すると判断しました。",
+              "confidence": 0.55,
+              "headingDescription": "紅茶(発酵させてあるものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。)"
+            },
+            {
+              "code": "0902.20",
+              "rank": 3,
+              "reason": "他の候補と比べて0902.20(緑茶(不発酵のものに限るものとし、その他のもの))が最も近いと判断しました。",
+              "confidence": 0.4,
+              "headingDescription": "緑茶(不発酵のものに限るものとし、その他のもの)"
+            }
+          ],
+          "datasetVersion": "HS2022-demo-v0.1",
+          "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+        }
+      ],
+      "final": {
+        "status": "CLASSIFIED",
+        "category": "food",
+        "productFacts": {
+          "name": "抹茶パウダー",
+          "description": "京都府産の碾茶(てん茶)を石臼で挽いた抹茶パウダーです。お菓子作りや飲用に使用します。",
+          "facts": [
+            {
+              "key": "ingredients",
+              "value": "碾茶(てん茶)100%",
+              "source": "USER_DECLARED"
+            },
+            {
+              "key": "processing_method",
+              "value": "石臼で挽いて微粉末にしたもの(浸出液の乾燥品ではありません)",
+              "source": "USER_DECLARED"
+            }
+          ]
+        },
+        "candidates": [
+          {
+            "code": "0902.10",
+            "rank": 1,
+            "reason": "製品情報中の「in」が0902.10(緑茶(不発酵のものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。))の分類基準と一致すると判断しました。",
+            "confidence": 0.55,
+            "headingDescription": "緑茶(不発酵のものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。)"
+          },
+          {
+            "code": "0902.30",
+            "rank": 2,
+            "reason": "製品情報中の「in」が0902.30(紅茶(発酵させてあるものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。))の分類基準と一致すると判断しました。",
+            "confidence": 0.55,
+            "headingDescription": "紅茶(発酵させてあるものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。)"
+          },
+          {
+            "code": "0902.20",
+            "rank": 3,
+            "reason": "他の候補と比べて0902.20(緑茶(不発酵のものに限るものとし、その他のもの))が最も近いと判断しました。",
+            "confidence": 0.4,
+            "headingDescription": "緑茶(不発酵のものに限るものとし、その他のもの)"
+          }
+        ],
+        "datasetVersion": "HS2022-demo-v0.1",
+        "datasetSource": "WCO Harmonized System 2022 Edition — curated demo subset compiled manually for this project. NOT exhaustive and NOT an authoritative tariff source. Verify against official national tariff schedules / WCO publications before any real customs use."
+      },
+      "checks": [
+        {
+          "name": "status_as_expected",
+          "pass": true,
+          "detail": "expected CLASSIFIED, got CLASSIFIED"
+        },
+        {
+          "name": "no_overconfident_classification",
+          "pass": true,
+          "detail": "ok"
+        },
+        {
+          "name": "category_as_expected",
+          "pass": true,
+          "detail": "routed to food as expected"
+        },
+        {
+          "name": "expected_questions_asked",
+          "pass": true,
+          "detail": "asked all of: ingredients, processing_method"
+        },
+        {
+          "name": "expected_candidate_found",
+          "pass": true,
+          "detail": "found 0902.10 among candidates: 0902.10, 0902.30, 0902.20"
+        },
+        {
+          "name": "top_candidate_matches_expected",
+          "pass": true,
+          "detail": "Recommended candidate (0902.10) matches expected 0902.10"
+        },
+        {
+          "name": "facts_roundtrip",
+          "pass": true,
+          "detail": "all declared answers appear as USER_DECLARED facts in the final result"
+        },
+        {
+          "name": "evidence_present",
+          "pass": true,
+          "detail": "all candidates/questions carry reasons; dataset version+source present"
+        }
+      ],
+      "failureReasons": [],
+      "critical": false
+    }
+  ]
+}

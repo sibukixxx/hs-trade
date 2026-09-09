@@ -1,0 +1,20 @@
+{
+  "id": "processed-food-instant-noodles",
+  "category": "processed_food",
+  "productLabel": "即席カップ麺",
+  "description": "Tests whether the 'food' category actually covers common processed food, and whether ingredient-ratio questions get asked, using natural product description language (not the word '食品' itself).",
+  "initialRequest": {
+    "name": "即席カップ麺",
+    "description": "お湯を注ぐだけで食べられるインスタントラーメンです。乾燥麺とスープの素が入っています。"
+  },
+  "expectedStatus": "CLASSIFIED",
+  "expectedCategory": "food",
+  "expectedMissingQuestionKeys": ["ingredients", "processing_method"],
+  "expectedHs": {
+    "level": "subheading",
+    "code": "1902.30",
+    "basis": "RESEARCHED",
+    "reference": "HS heading 1902 ('Pasta...'); subheading 1902.30 ('Other pasta') is the standard classification for instant/cup noodles per US CBP ruling NY 803646 ('tariff classification of instant noodle preparations from Thailand') and multiple trade guides — pre-cooked noodles with a seasoning packet still fall here."
+  },
+  "notes": "Prediction before running: this is expected to fail even category detection. The 'food' category's matchKeywords are tea/beverage-centric (['茶','お茶','緑茶','紅茶','食品','食料品','飲料','エキス',...]) and none of them appear in ordinary instant-noodle phrasing — '食べられる' contains '食' but not the literal 2-character token '食品'. So this likely falls to category='unknown', on top of heading 1902 not existing in the dataset at all (chapters 09/21 only). Two independent gaps compounding on an extremely common, everyday food product is a meaningful finding about how narrow the current 'food' category really is."
+}

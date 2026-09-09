@@ -1,0 +1,25 @@
+{
+  "id": "apparel-cotton-tshirt",
+  "category": "apparel",
+  "productLabel": "綿100%の半袖Tシャツ",
+  "description": "Baseline easy apparel case, mirroring the definitional-nomenclature confidence of the tea control case.",
+  "initialRequest": {
+    "name": "半袖Tシャツ",
+    "description": "夏用の半袖丸首Tシャツです。"
+  },
+  "followUpAnswers": {
+    "fiber_composition": "綿100%",
+    "knit_or_woven": "ニット(メリヤス編み)",
+    "garment_type": "半袖Tシャツ"
+  },
+  "expectedStatus": "CLASSIFIED",
+  "expectedCategory": "textile",
+  "expectedMissingQuestionKeys": ["fiber_composition", "knit_or_woven", "garment_type"],
+  "expectedHs": {
+    "level": "subheading",
+    "code": "6109.10",
+    "basis": "HS_NOMENCLATURE_TEXT",
+    "reference": "HS heading 6109 ('T-shirts, singlets and other vests, knitted or crocheted'); subheading 6109.10 ('of cotton') — direct nomenclature text, not a case-specific ruling."
+  },
+  "notes": "Control case. Expected to pass cleanly, same role as tea-green-tea-leaf."
+}

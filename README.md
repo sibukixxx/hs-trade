@@ -223,12 +223,26 @@ Contributions are welcome, especially:
 - Real-world usage feedback (please open an Issue)
 - Expanding `data/hs/*.json` with more headings/subheadings and keywords
 - New test cases under `tests/cases/**`
+- New product cases under `eval/cases/**` — see [`eval/README.md`](eval/README.md)
 
 Run `npm test` before opening a pull request.
 
 **Once this P0's flow works end-to-end in the browser, no new features are
 being added.** The priority right now is real feedback on this one tool,
 not scope expansion.
+
+## Validation
+
+Passing tests confirms the *code* does what it's supposed to. It says nothing
+about whether the *classification* is actually any good. [`eval/`](eval/)
+is a separate, growable set of real-ish product cases — some easy, some
+deliberately ambiguous — graded against classification that's either
+definitional (the HS nomenclature's own legal text) or backed by a specific
+researched source, never against the AI's own guess. Run it with
+`npm run eval`; results (including where the current classifier is
+confidently right, quietly wrong, or honestly out of its depth) live in
+[`eval/RESULTS.md`](eval/RESULTS.md) and the write-up in
+[`eval/README.md`](eval/README.md).
 
 ## Feedback
 

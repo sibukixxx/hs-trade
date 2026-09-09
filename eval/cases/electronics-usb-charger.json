@@ -1,0 +1,18 @@
+{
+  "id": "electronics-usb-charger",
+  "category": "electronics",
+  "productLabel": "USB-C急速充電器(ACアダプター)",
+  "description": "A second electronics data point in a genuinely different heading (8504, not 8544) from the cable case, to see whether the classifier can even distinguish 'a cable' from 'a power adapter' when it can't reach either heading anyway.",
+  "initialRequest": {
+    "name": "USB急速充電器",
+    "description": "コンセントに直接挿して使うACアダプターで、USB Type-Cポートを1つ備え、最大30W出力の急速充電に対応します。"
+  },
+  "expectedStatus": "CLASSIFIED",
+  "expectedHs": {
+    "level": "subheading",
+    "code": "8504.40",
+    "basis": "RESEARCHED",
+    "reference": "HTS/HS heading 8504 ('Electrical static converters'), subheading 8504.40 — confirmed by multiple sources (dutiable.io 'USB-C Wall Charger / GaN Charger: 8504.40.20', freightamigo AC/DC adapter guides) as the standard classification for USB wall chargers and AC/DC power adapters."
+  },
+  "notes": "Prediction before running: same outcome as the cable case for the same structural reason — no electronics category, and chapter 85 in our dataset only covers heading 8509. This and the cable case together show the gap is at the chapter/heading level (85 is 'covered' in name only, via one narrow heading), not just a missing top-level category label."
+}

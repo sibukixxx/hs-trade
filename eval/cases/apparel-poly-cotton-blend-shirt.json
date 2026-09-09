@@ -1,0 +1,25 @@
+{
+  "id": "apparel-poly-cotton-blend-shirt",
+  "category": "apparel",
+  "productLabel": "ポリエステル65%・綿35%混紡のワイシャツ",
+  "description": "Tests the real HS 'chief weight' rule for fiber blends (Section XI, Note 2: a mixture of textile materials is classified as if wholly of the material that predominates by weight). Here polyester (65%) predominates, so the correct answer is the man-made-fibre subheading, not the cotton one — even though the fabric contains cotton too. The classifier only accepts a fiber_composition ANSWER as 'present', with no parsing of percentages at all, so it has no way to actually apply this rule.",
+  "initialRequest": {
+    "name": "メンズシャツ",
+    "description": "オフィス用の長袖シャツです。"
+  },
+  "followUpAnswers": {
+    "fiber_composition": "ポリエステル65%・綿35%の混紡",
+    "knit_or_woven": "織物(ウーブン)",
+    "garment_type": "長袖シャツ"
+  },
+  "expectedStatus": "CLASSIFIED",
+  "expectedCategory": "textile",
+  "expectedMissingQuestionKeys": ["fiber_composition", "knit_or_woven", "garment_type"],
+  "expectedHs": {
+    "level": "subheading",
+    "code": "6205.30",
+    "basis": "HS_NOMENCLATURE_TEXT",
+    "reference": "HS Section XI, Note 2(A) (General Interpretive Rule for mixed textile materials): classify as consisting wholly of the textile material which predominates by weight. Polyester at 65% predominates, so this is 'of man-made fibres' — heading 6205, subheading 6205.30 — not 6205.20 (of cotton)."
+  },
+  "notes": "Prediction before running: our candidate scorer just counts whether the literal words '綿' and 'ポリエステル' appear in the text — both do, once each, regardless of the attached percentages. So 6205.20 and 6205.30 will very likely score identically, and whichever wins will be an accident of dataset file ordering (6205.20 is listed first in subheadings.json), not an application of the chief-weight rule. If the tool's Recommended candidate is 6205.20 here, that's not a coincidence that happens to be safe — it would be equally wrong (and equally confident) if I'd written 'cotton 65% / polyester 35%' instead, since the code never actually reads the percentages. That is the finding, independent of which single subheading happens to come out on top this run."
+}

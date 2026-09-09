@@ -1,0 +1,18 @@
+{
+  "id": "electronics-usb-cable",
+  "category": "electronics",
+  "productLabel": "USB-C to USB-A 充電・データ転送ケーブル",
+  "description": "Electronics has no category definition either. This case checks whether a very common, fully-specified consumer item at least gets engaged with sensibly.",
+  "initialRequest": {
+    "name": "USB-C to USB-Aケーブル",
+    "description": "USB Type-CコネクタとUSB Type-Aコネクタが両端に付いた、1mの充電・データ転送用ケーブルです。"
+  },
+  "expectedStatus": "CLASSIFIED",
+  "expectedHs": {
+    "level": "subheading",
+    "code": "8544.42",
+    "basis": "RESEARCHED",
+    "reference": "HS heading 8544 covers insulated electric conductors/cables, whether or not fitted with connectors; multiple trade-compliance guides (freightamigo, brokergenius, ramcorpwire) converge on 8544.42 specifically for cables ≤1,000V fitted with connectors (USB, Ethernet, power cords) — the presence of terminated connectors is the key classification factor cited across sources."
+  },
+  "notes": "Prediction before running: 'machinery' is the only category with any electronics-adjacent keywords ('機器','電動','モーター'), none of which appear in a USB cable description, so this falls to category='unknown'. Even if it were somehow routed to machinery, chapter 85 in our dataset only models heading 8509 (domestic appliances), not 8544 — so this is a clean HS_DATA_GAP either way, not just a category-detection problem."
+}

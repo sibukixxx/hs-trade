@@ -1,0 +1,19 @@
+{
+  "id": "cosmetics-shampoo",
+  "category": "cosmetics",
+  "productLabel": "アミノ酸系シャンプー",
+  "description": "This case was written with completely ordinary marketing Japanese ('アミノ酸系' = 'amino-acid-based', a routine way to describe a mild shampoo) — not to trick the tool. It exposes a real bug: the chemical category's match keyword list includes the single character '酸' ('acid'), which is a substring of '酸' anywhere, including inside 'アミノ酸' ('amino acid'). That mis-routes an ordinary cosmetic product into the chemical category and triggers nonsensical questions (chemical name / CAS number) for a shampoo bottle.",
+  "initialRequest": {
+    "name": "アミノ酸系シャンプー",
+    "description": "頭皮と髪を洗うための家庭用シャンプーです。アミノ酸系洗浄成分を使用しています。"
+  },
+  "expectedStatus": "NEEDS_INFORMATION",
+  "expectedCategory": "unknown",
+  "expectedHs": {
+    "level": "subheading",
+    "code": "3305.10",
+    "basis": "RESEARCHED",
+    "reference": "HS heading 3305 ('Preparations for use on the hair'), subheading 3305.10 ('Shampoos') — confirmed by taricsupport.com nomenclature and multiple classification guides as the standard code for hair shampoo, including amino-acid-based formulations."
+  },
+  "notes": "Prediction before running: since 'cosmetics' isn't a real category in this classifier (expectedCategory here states what SHOULD happen, not what the code can currently produce), the actual outcome is expected to be worse than a plain 'unknown' case — the single-character keyword '酸' in the chemical category's matchKeywords list will match inside '酸' as a substring of the word 'アミノ酸' ('amino acid'), silently routing a shampoo into the chemical-product question flow ('化学名を教えてください' / CAS number). That's a materially worse failure mode than 'doesn't know this product' — it's confidently asking the wrong questions for the wrong reason. This is the most important single finding to fix before adding more coverage: keyword-substring category detection needs word-boundary or multi-character-minimum matching, not raw substring checks on 1-character strings."
+}

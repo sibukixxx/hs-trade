@@ -1,0 +1,23 @@
+{
+  "id": "machinery-parts-motor-brush",
+  "category": "machinery_parts",
+  "productLabel": "電動モーター用カーボンブラシ(専用部品)",
+  "description": "The opposite of the bearing case: a part explicitly DEDICATED to one machine type, echoing the original design brief's own example question ('専用部品ですか？'). This case intentionally does not claim a confident expected HS code — dedicated-part classification depends on rules (which heading the host machine falls under) that weren't verified against a specific citation here, so it's marked UNKNOWN rather than guessed. The point of this case is to check the question-asking behavior, not to grade a fabricated answer.",
+  "initialRequest": {
+    "name": "モーター用カーボンブラシ",
+    "description": "電動モーター専用に設計された交換用カーボンブラシです。汎用品ではなく、特定モデルの純正部品として販売しています。"
+  },
+  "followUpAnswers": {
+    "function": "モーター内で整流子と接触し電流を通す消耗部品",
+    "complete_or_part": "部品(特定モデル専用の純正品)"
+  },
+  "expectedStatus": "NEEDS_REVIEW",
+  "expectedCategory": "machinery",
+  "expectedMissingQuestionKeys": ["function", "complete_or_part"],
+  "expectedHs": {
+    "level": "unknown",
+    "basis": "UNKNOWN",
+    "reference": "Not verified against an official source in this validation round. Real HS practice treats dedicated parts differently from general-use parts (per Section XVI notes), sometimes classifying them with the host machine's heading rather than a standalone parts heading — but pinning the exact code needs a specific ruling or Explanatory Note lookup this round didn't do. Left UNKNOWN deliberately rather than guessed, per the validation brief's own instruction."
+  },
+  "notes": "Prediction before running: category should correctly resolve to 'machinery' ('モーター' and '電動' both appear), and it should ask exactly the two questions the original design brief itself proposed for this scenario (function, complete/part) — this is expected to be one of the cleaner successes in the set, since machinery's required-fact questions map well onto genuinely dedicated-part products. Candidate search will still fail (chapter 85 in the dataset only models 8509 domestic appliances, not any parts heading), which is graded as NEEDS_REVIEW here, not as a wrong-HS failure, since no expected code is claimed."
+}
