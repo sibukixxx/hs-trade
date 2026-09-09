@@ -1,34 +1,24 @@
 import { useState } from "preact/hooks"
-import type {
-  ClassificationResult,
-  FeedbackVerdict,
-  PractitionerRole
-} from "@hs-trade/classifier"
+import type { ClassificationResult, FeedbackVerdict } from "@hs-trade/classifier"
 import { submitFeedback } from "../api/client"
-import { LeadGenPanel } from "./LeadGenPanel"
 
-const ROLE_OPTIONS: { value: PractitionerRole; label: string }[] = [
-  { value: "CUSTOMS_BROKERAGE", label: "通関業務" },
-  { value: "LICENSED_CUSTOMS_SPECIALIST", label: "通関士" },
-  { value: "TRADE_OPERATIONS", label: "貿易実務" },
-  { value: "IMPORTER_EXPORTER", label: "輸出入事業者" },
-  { value: "CROSS_BORDER_EC", label: "越境EC" },
-  { value: "OTHER", label: "その他" }
-]
-
+/**
+ * This is deliberately small: a verdict, and an optional correction when
+ * the verdict is INCORRECT. No practitioner segmentation, no email
+ * capture — this feedback exists purely to improve the OSS classifier.
+ * Business inquiries are a separate, static referral (see BusinessInquiryNote).
+ */
 export function FeedbackForm({ result }: { result: ClassificationResult }) {
   const [verdict, setVerdict] = useState<FeedbackVerdict | null>(null)
   const [correctedCode, setCorrectedCode] = useState("")
   const [correctedReason, setCorrectedReason] = useState("")
   const [missingInformation, setMissingInformation] = useState("")
-  const [role, setRole] = useState<PractitionerRole | undefined>(undefined)
   const [state, setState] = useState<"idle" | "submitting" | "done" | "error">("idle")
 
-  if (state === "done" && verdict) {
+  if (state === "done") {
     return (
-      <div class="space-y-4 rounded border border-slate-200 bg-white p-5">
+      <div class="rounded border border-slate-200 bg-white p-5">
         <p class="text-sm text-green-700">フィードバックを送信しました。ありがとうございます。</p>
-        <LeadGenPanel result={result} verdict={verdict} />
       </div>
     )
   }
@@ -41,8 +31,8 @@ export function FeedbackForm({ result }: { result: ClassificationResult }) {
         {(
           [
             ["CORRECT", "正しい"],
-            ["INCORRECT", "間違っている"],
-            ["UNSURE", "判断できない"]
+            ["INCORRECT", "違うと思う"],
+            ["UNSURE", "分からない"]
           ] as [FeedbackVerdict, string][]
         ).map(([value, label]) => (
           <button
@@ -63,7 +53,7 @@ export function FeedbackForm({ result }: { result: ClassificationResult }) {
       {verdict === "INCORRECT" && (
         <div class="space-y-3 rounded border border-slate-200 bg-slate-50 p-4">
           <div>
-            <label class="block text-sm font-medium mb-1">正しいと思うHSコード</label>
+            <label class="block text-sm font-medium mb-1">正しいと思うHSコード(任意)</label>
             <input
               class="w-full rounded border border-slate-300 px-3 py-2"
               value={correctedCode}
@@ -71,7 +61,7 @@ export function FeedbackForm({ result }: { result: ClassificationResult }) {
             />
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1">理由</label>
+            <label class="block text-sm font-medium mb-1">理由(任意)</label>
             <textarea
               class="w-full rounded border border-slate-300 px-3 py-2"
               rows={2}
@@ -80,35 +70,13 @@ export function FeedbackForm({ result }: { result: ClassificationResult }) {
             />
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1">不足している商品情報</label>
+            <label class="block text-sm font-medium mb-1">不足している情報(任意)</label>
             <textarea
               class="w-full rounded border border-slate-300 px-3 py-2"
               rows={2}
               value={missingInformation}
               onInput={(e) => setMissingInformation(e.currentTarget.value)}
             />
-          </div>
-        </div>
-      )}
-
-      {verdict && (
-        <div>
-          <p class="text-sm font-medium mb-1">あなたの立場(任意)</p>
-          <div class="flex flex-wrap gap-2">
-            {ROLE_OPTIONS.map((option) => (
-              <button
-                key={option.value}
-                type="button"
-                class={`rounded border px-2 py-1 text-xs ${
-                  role === option.value
-                    ? "border-blue-600 bg-blue-50 text-blue-800"
-                    : "border-slate-300 text-slate-600"
-                }`}
-                onClick={() => setRole(role === option.value ? undefined : option.value)}
-              >
-                {option.label}
-              </button>
-            ))}
           </div>
         </div>
       )}
@@ -130,8 +98,7 @@ export function FeedbackForm({ result }: { result: ClassificationResult }) {
                 verdict,
                 correctedCode: verdict === "INCORRECT" ? correctedCode || undefined : undefined,
                 correctedReason: verdict === "INCORRECT" ? correctedReason || undefined : undefined,
-                missingInformation: verdict === "INCORRECT" ? missingInformation || undefined : undefined,
-                practitionerRole: role
+                missingInformation: verdict === "INCORRECT" ? missingInformation || undefined : undefined
               })
               setState("done")
             } catch {

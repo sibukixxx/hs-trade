@@ -93,6 +93,8 @@ export interface ClassificationResult {
   /** Human-readable notes, e.g. conflicting fact sources, dataset gaps. */
   notes?: string[]
   datasetVersion: string
+  /** Where the HS dataset used for candidate retrieval came from — shown as "SOURCE" in the UI. */
+  datasetSource: string
 }
 
 /** Raw input coming from the UI (or any client) for one classification turn. */

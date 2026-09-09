@@ -54,7 +54,8 @@ export async function classify(
           reason: "商品のカテゴリーが判断できず、分類に必要な質問を決められませんでした。"
         }
       ],
-      datasetVersion: dataset.version
+      datasetVersion: dataset.version,
+      datasetSource: dataset.source
     }
   }
 
@@ -65,7 +66,8 @@ export async function classify(
       category,
       productFacts,
       notes: [`Category "${category}" has no definition configured.`],
-      datasetVersion: dataset.version
+      datasetVersion: dataset.version,
+      datasetSource: dataset.source
     }
   }
 
@@ -76,7 +78,8 @@ export async function classify(
       category,
       productFacts,
       questions: missingQuestions,
-      datasetVersion: dataset.version
+      datasetVersion: dataset.version,
+      datasetSource: dataset.source
     }
   }
 
@@ -89,7 +92,8 @@ export async function classify(
       category,
       productFacts,
       notes: [...notes, "データセット内に一致するHS候補が見つかりませんでした。"],
-      datasetVersion: dataset.version
+      datasetVersion: dataset.version,
+      datasetSource: dataset.source
     }
   }
 
@@ -118,7 +122,8 @@ export async function classify(
       category,
       productFacts,
       notes: [...notes, "LLMの評価結果が候補データセットと一致しませんでした。"],
-      datasetVersion: dataset.version
+      datasetVersion: dataset.version,
+      datasetSource: dataset.source
     }
   }
 
@@ -138,7 +143,8 @@ export async function classify(
       productFacts,
       candidates,
       notes: [...notes, "分類結果の信頼度が低いため、専門家によるレビューを推奨します。"],
-      datasetVersion: dataset.version
+      datasetVersion: dataset.version,
+      datasetSource: dataset.source
     }
   }
 
@@ -148,7 +154,8 @@ export async function classify(
     productFacts,
     candidates,
     notes: notes.length > 0 ? notes : undefined,
-    datasetVersion: dataset.version
+    datasetVersion: dataset.version,
+    datasetSource: dataset.source
   }
 }
 

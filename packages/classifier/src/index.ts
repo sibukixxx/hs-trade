@@ -13,8 +13,4 @@ export { HeuristicLlm } from "./llm/heuristicLlm.js"
 export { AnthropicLlm } from "./llm/anthropicLlm.js"
 export type { AnthropicLlmOptions } from "./llm/anthropicLlm.js"
 export type { ClassifierLlm, LlmCandidateInput, LlmEvaluation } from "./llm/types.js"
-export type {
-  ClassificationFeedback,
-  FeedbackVerdict,
-  PractitionerRole
-} from "./feedback.js"
+export type { ClassificationFeedback, FeedbackVerdict } from "./feedback.js"

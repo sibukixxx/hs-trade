@@ -1,66 +1,75 @@
 # HS Classification Lab
 
-AIによるHSコード分類が、実際の通関・貿易実務でどこまで使えるのかを検証するための、
-小さく公開されたOSS実験プロジェクトです。
+An OSS experiment in AI-assisted HS (Harmonized System) code classification —
+a small, single-purpose tool, not a trade platform.
 
-> **HS Classification Lab is an experimental, public research tool for testing how far
-> AI-assisted HS code classification can go in real customs/trade workflows. It is not
-> a final customs determination.**
+> **AI classification results are not an official customs determination.** They
+> are a research/reference tool. For anything that matters, confirm with a
+> customs broker or your local customs authority.
 
-⸻
+## What is this?
 
-## このプロジェクトの目的
+This project exists for three reasons, in this order of priority:
 
-このプロジェクトは現時点で**有料SaaSを目的としていません**。
+1. **Self-use** — the author personally imports/exports between Japan, the US,
+   China and the EU, and wants a tool to understand and research HS
+   classification for that.
+2. **OSS** — publishing it so individuals, importers/exporters, and customs
+   brokers can try it for free, with zero setup friction.
+3. **B2B opportunity** — if a company is interested in using this in a real
+   workflow, there's a small, static pointer to consult TechVit about it.
+   Nothing more (see "Business inquiries" below).
 
-目的はただ一つ、
-
-> AIによるHSコード分類が、実際の通関・貿易実務でどこまで使えるのかを公開環境で検証する
-
-ことです。通関業者、通関士、貿易実務担当者、輸出入事業者、越境EC事業者、貿易に詳しい
-エンジニアなどに実際に使ってもらい、
-
-- AIの分類は正しいか
-- 何が間違っているか
-- どんな商品情報が不足するか
-- 何があれば信用できるか
-- 実務上どの機能が必要か
-
-というフィードバックを集めることがゴールです。**分類精度そのものと同じくらい、
-実務者から質の高いフィードバックを得られることをこのP0の成功条件としています。**
-
-## ⚠️ 重要な注意事項
-
-- **この結果は通関上の最終判断ではありません。** 実際の輸出入にあたっては、必ず
-  税関・通関士等の専門家にご確認ください。
-- 本プロジェクトは**現在実験段階**です。分類精度・データセットの網羅性は保証されません。
-- 関税率計算・輸入消費税・VAT・EPA/FTA・原産地判定・輸入/輸出規制・許認可判定・
-  Commercial Invoice/Packing Listの生成・通関申告・物流・landed costは、この
-  ツールの責務**ではありません**。これらは将来的に別のTradeツールとして切り出す構想
-  ですが、このリポジトリでは実装しません。
-
-## 機能境界(スコープ)
-
-このプロジェクトが実装するのは **HS Classifier のみ** です。
+It is **not** a SaaS product today, and it deliberately does not try to be a
+full trade platform. It classifies one thing: given product information, what
+HS code(s) might apply, and why.
 
 ```
-Trade Tools (将来構想。今回はHS Classifierのみ実装)
-├── HS Classifier          ← これだけ実装
-├── Product Facts          ← HS Classifier内部の仕組みとしてのみ存在。独立製品にはしない
-├── Classification Research
-├── Past Cases Search
-├── Tariff Lookup
-├── Import / Export Requirements
-├── Origin / FTA
-├── Document Assistant
-└── Trade Workflow
+商品情報を入力
+      ↓
+分類に必要な情報を整理
+      ↓
+情報不足なら追加質問
+      ↓
+HSコード候補を提示
+      ↓
+なぜその候補なのか説明
+      ↓
+ユーザーが確認 (正しい / 違うと思う / 分からない)
 ```
 
-HS Classifierの責務は、**商品についてユーザーから情報を取得し、必要に応じて不足情報
-を質問し、HSコード候補を提示すること**だけです。関税計算・原産地判定・規制判定などは
-意図的に混ぜていません。
+### Out of scope (on purpose)
 
-## Architecture
+Tariff rates, import/consumption tax, VAT, FTA/EPA, rules of origin, import
+and export regulations, licensing, Commercial Invoice / Packing List
+generation, customs declarations, shipping/logistics, landed cost, product
+management, authentication, billing, workspaces, CRM, and CSV bulk
+processing are **not** part of this tool. If any of these become useful
+later, they'll be built as separate Trade Tools, not folded into this one:
+
+```
+Trade Tools
+├── HS Classifier        ← this repo
+├── Tariff Lookup        ← future, separate tool
+├── Classification Cases ← future, separate tool
+├── Regulation Check     ← future, separate tool
+├── Origin / FTA         ← future, separate tool
+└── Documents            ← future, separate tool
+```
+
+## Demo
+
+No account, no credit card, no API key, and no GitHub login are required to
+use this tool — "open the site → describe a product → try it" is the whole
+interaction.
+
+This repository is structured to be deployed as a public, zero-auth demo
+(a static Preact SPA + a small serverless API). It doesn't ship with a
+hosted URL by default — see [Local development](#local-development) to run
+it yourself, or deploy `apps/web` as a static site and `apps/api` as a
+Cloudflare Worker.
+
+## How it works
 
 ```
 Preact SPA (apps/web)
@@ -70,171 +79,175 @@ Serverless API (apps/api, Cloudflare Workers)
      │
      ├── POST /api/classify ──► @hs-trade/classifier ──► HS dataset (data/hs/*.json)
      │                                │
-     │                                └──► LLM (Anthropic, ANTHROPIC_API_KEY があるときのみ)
-     │                                     未設定時は決定的なヒューリスティック評価にフォールバック
+     │                                └──► LLM (Anthropic, only if ANTHROPIC_API_KEY is set)
+     │                                     otherwise falls back to a deterministic heuristic ranker
      │
-     └── POST /api/feedback ──► KV (任意) or console.log
+     └── POST /api/feedback ──► KV (optional) or console.log
 ```
 
 ```
 hs-trade/
-├── data/hs/                 静的HSデータセット(chapters/headings/subheadings + version/source)
-├── packages/classifier/     Classification Logic 本体。UIからもWorkerからも独立してテスト可能
+├── data/hs/                 Static HS dataset (chapters/headings/subheadings + version/source)
+├── packages/classifier/     Classification logic. Independent of any UI framework, fully unit-testable.
 │   └── src/
-│       ├── types.ts         Input JSON / Output JSON の型定義
-│       ├── productFacts.ts  正規化 & 情報源の優先解決(推測と事実を混ぜない)
-│       ├── categories/      商品カテゴリー別の必須質問定義(textile/food/chemical/machinery)
-│       ├── candidates.ts    データセットからの候補検索(キーワードマッチ、埋め込み/DBなし)
-│       ├── llm/             LLMインターフェース + ヒューリスティック実装 + Anthropic実装
-│       ├── missingFacts.ts  不足情報の判定
-│       ├── feedback.ts      Feedbackの型定義(Web/API共有)
-│       └── classify.ts      パイプライン全体のオーケストレーション
-├── apps/api/                Cloudflare Worker(APIキーはここでのみ保持)
-├── apps/web/                Preact + TypeScript + Vite + TanStack Router のSPA
-└── tests/cases/             Fixtureベースのテストケース(food/textile/machinery/chemical/ambiguous)
+│       ├── types.ts         ClassificationRequest / ClassificationResult — the JSON boundary
+│       ├── productFacts.ts  Normalization + source-priority resolution ("don't mix inference with fact")
+│       ├── categories/      Per-category required-fact questions (textile/food/chemical/machinery)
+│       ├── candidates.ts    Keyword-based candidate retrieval from the dataset (no DB/vector store)
+│       ├── llm/             LLM interface + heuristic fallback + Anthropic implementation
+│       ├── missingFacts.ts  Decides what's still missing before a code can be suggested
+│       ├── feedback.ts      Feedback type shared by the web app and the API
+│       └── classify.ts      Orchestrates the whole pipeline
+├── apps/api/                Cloudflare Worker — the only place the LLM API key lives
+├── apps/web/                Preact + TypeScript + Vite + TanStack Router SPA
+└── tests/cases/             Fixture-based test cases (food/textile/machinery/chemical/ambiguous)
 ```
 
-**重要な設計方針:** UIコンポーネント内部にClassification Logicは書きません。
-`packages/classifier` は
+**Design rule:** classification logic never lives inside a UI component. The
+boundary is:
 
 ```
-Input JSON (ClassificationRequest)
-    ↓
-Classifier
-    ↓
-Output JSON (ClassificationResult)
+ClassificationRequest
+        ↓
+Classifier   (packages/classifier — plain TypeScript, no framework)
+        ↓
+ClassificationResult
 ```
 
-という明確な境界を持つ、フレームワーク非依存のTypeScriptです。これにより、将来
-バックエンドをGoへ移植する際もロジックの移植対象が明確になります(このリポジトリ
-ではGoへの移植自体は行いません)。
+This is what would let a future, stable subset of this logic be ported to a
+Go "Trade Engine" without dragging the UI along — that port is **not** done
+in this repository, just kept possible.
 
-LLMは**候補コードを自由生成しません**。まずデータセットからキーワードマッチで候補
-を絞り込み、LLM(またはフォールバックのヒューリスティック)はその候補リストの中から
-ランク付けと理由説明を行うだけです。候補リストにないコードをLLMが返しても、
-`classify()` 内で無視されます。
+The LLM never invents HS codes. Candidates are retrieved from the static
+dataset by keyword match first; the LLM (or, without an API key, a
+deterministic heuristic ranker) only ranks and explains the candidates it
+was given. Any code an LLM returns that isn't in that candidate list is
+discarded by `classify()`.
 
-## Local Development
+### Classification flow in detail
 
-前提: Node.js 20+、npm。
+商品情報入力(商品名・商品説明は必須。画像/輸出元国/輸入先国は任意)
+→ ProductFactsへ正規化 → カテゴリー判定(textile/food/chemical/machinery/unknown)
+→ 必要な情報が揃っているか判定 → 不足があれば `NEEDS_INFORMATION` として追加質問を返す
+→ 揃っていればデータセットから候補を検索 → LLM(またはヒューリスティック)が候補をランク付け
+→ `CLASSIFIED` / `NEEDS_REVIEW` / `NEEDS_INFORMATION` のいずれかを返す。
+
+固定20項目フォームは使いません。商品カテゴリーに応じて聞かれる質問が変わります
+(例: Textileなら素材構成比・ニット/織物の別、Foodなら原材料と加工方法、Chemicalなら
+化学名とCAS番号、Machineryなら機能と完成品/部品の別)。情報が不足していても、無理に
+コードを返すことはしません — `NEEDS_INFORMATION` は正常な結果として扱われます。
+
+**推測と事実を混ぜない:** 商品情報には常に情報源(`USER_DECLARED` / `IMAGE_INFERRED` /
+`TEXT_INFERRED` / `AI_INFERRED`)を持たせます。分類に決定的な情報(繊維の素材構成、
+食品の原材料、化学品の化学名など)は、ユーザー自身の申告がない限り「不足情報」として
+扱われ、AIやImage推定だけで確定させることはありません。ユーザー申告とAI/画像推定が
+競合する場合はユーザー申告を優先し、結果のUNCERTAINTYセクションにその旨を記録します。
+
+結果画面は以下の構造で、AIの回答を鵜呑みにさせない設計にしています。
+
+- **RESULT** — HS候補(Recommended + Other candidates)
+- **WHY** — なぜその候補なのかの理由
+- **PRODUCT FACTS** — 分類に利用した商品情報とその情報源
+- **UNCERTAINTY** — 不明・推定に基づく情報、情報源間の矛盾
+- **SOURCE** — 利用したデータセットのバージョンと出典
+
+## Local development
+
+Requirements: Node.js 20+, npm.
 
 ```bash
 npm install
 
-# 1) API (Cloudflare Workers、Miniflareでローカル実行。APIキー無しでも動作)
+# 1) API (Cloudflare Workers, run locally via Miniflare — no API key required)
 npm run dev:api      # http://localhost:8787
 
-# 2) Web (別ターミナルで)
+# 2) Web (in another terminal)
 cp apps/web/.env.example apps/web/.env
 npm run dev:web      # http://localhost:5173
 ```
 
-実際のLLMで分類したい場合は、`apps/api` で以下を設定してください(任意)。
+To use a real LLM instead of the built-in heuristic fallback (optional):
 
 ```bash
 cd apps/api
 npx wrangler secret put ANTHROPIC_API_KEY
 ```
 
-未設定の場合は、決定的なキーワードベースのヒューリスティック評価にフォールバック
-するため、**APIキーが無くてもアプリ全体を試せます**(テストが常にこのモードで
-動いているのはこのためです)。
+Without a key, `classify()` uses a deterministic keyword-overlap ranker
+instead — this is also what the test suite runs against, so the app and its
+tests work with zero external dependencies.
 
-Feedbackを永続化したい場合は、Cloudflare KV Namespaceを作成し
-`apps/api/wrangler.toml` のコメントを外してください。未設定時はWorkerの
-コンソールログに出力されるだけです。
+To persist feedback instead of just logging it, create a Cloudflare KV
+namespace and uncomment the binding in `apps/api/wrangler.toml`.
 
-### テストの実行
+### Tests
 
 ```bash
 npm test
 npm run typecheck
 ```
 
-## Classification Flow
+## Data sources
 
-```
-商品情報入力(商品名・商品説明は必須。画像/輸出入国は任意)
-     ↓
-商品情報の正規化(ProductFacts)
-     ↓
-商品カテゴリーの判定(textile / food / chemical / machinery / unknown)
-     ↓
-カテゴリーに必要な情報が揃っているか判定
- ┌───────────┴───────────┐
- 不足あり                  揃っている
- │(NEEDS_INFORMATION)      │
- 追加質問を提示              HSデータセットから候補を検索
- │                          │
- └───────┬──────────────────┘
-         ↓
-   LLM(またはヒューリスティック)が候補をランク付け・説明
-         ↓
-CLASSIFIED / NEEDS_REVIEW / NEEDS_INFORMATION を提示
-         ↓
-ユーザーが「正しい / 間違っている / 分からない」を回答
-         ↓
-(間違っている場合)正しいHSコード・理由・不足情報を入力
-         ↓
-Feedback保存
-         ↓
-(任意)ヒアリング参加のためのEmail登録
-```
+`data/hs/*.json` is a small, **hand-curated demo subset** referencing the
+WCO Harmonized System 2022 Edition (`data/hs/meta.json` records `version`
+and `source`). It currently covers a handful of headings/subheadings under
+Textile (chapters 61/62), Food (09/21), Chemical (29), and Machinery (85) —
+just enough to exercise every part of the classification pipeline.
 
-固定20項目フォームは使いません。商品カテゴリーによって聞かれる質問は変わります
-(例: Textileなら素材構成比、Foodなら原材料と加工方法、Chemicalなら化学名とCAS番号、
-Machineryなら機能と完成品/部品の別)。
-
-### 推測と事実を混ぜない
-
-画像やAIの推定だけでは確定できない情報(例: 繊維製品の素材構成、食品の原材料、
-化学品の化学名)は、必ず `USER_DECLARED`(ユーザー申告)の情報源がない限り
-「不足情報」として扱われます。画像推定・AI推定・ユーザー申告が競合する場合は、
-ユーザー申告を優先し、その旨をResultの `notes` に記録します。詳細は
-`packages/classifier/src/productFacts.ts` と `missingFacts.ts` を参照してください。
-
-## Feedback / Contribution
-
-結果画面の下部に、以下のフィードバックUIがあります。
-
-- この分類についてどう思いますか?(正しい / 間違っている / 判断できない)
-- 「間違っている」の場合: 正しいと思うHSコード・理由・不足していた商品情報
-- 任意: あなたの立場(通関業務 / 通関士 / 貿易実務 / 輸出入事業者 / 越境EC / その他)
-- 任意: ヒアリング参加のためのEmail登録(フィードバック送信**後**にのみ表示され、
-  分類の利用条件にはなりません)
-
-ログインは一切要求しません。
-
-コントリビューションを歓迎します。特に、
-
-- 実務者としての利用フィードバック(Issueで歓迎します)
-- `data/hs/*.json` の拡充(HS品目・キーワードの追加)
-- `tests/cases/**` への新しいテストケースの追加
-
-は大きな価値があります。プルリクエストを送る前に `npm test` を通してください。
-
-**このP0が完成したら、新しいTrade Toolの実装は行いません。** まずは実務者からの
-フィードバックを集めることを優先してください。
-
-## Dataset source
-
-`data/hs/*.json` は、WCO Harmonized System 2022 Editionを参考に**手作業で作成した
-デモ用の限定サブセット**です(`data/hs/meta.json` に `version` / `source` を記載)。
-Textile(61/62類の一部)、Food(09/21類の一部)、Chemical(29類の一部)、
-Machinery(85類の一部)のみをカバーしています。
-
-**実務・商用利用のための完全なHSデータではありません。** 正確な分類には、
-公式の関税率表・WCO資料・各国税関の公式情報を必ず参照してください。
+**This is not a complete or authoritative HS dataset.** For real
+classification decisions, always check the official tariff schedule, WCO
+publications, and your national customs authority.
 
 ## Limitations
 
-- データセットはごく一部の章・品目のみをカバーしています(網羅性なし)。
-- 画像URLの入力は可能ですが、画像に対する自動AI解析(IMAGE_INFERRED factの自動生成)
-  は本P0では実装していません。型としては用意されていますが、実際に画像を解析して
-  factを生成するのは将来の課題です。
-- LLMの評価はデータセットから取得した候補の中からのランク付けに限定されますが、
-  データセット自体が小さいため、実務で使えるレベルの候補網羅性はありません。
-- Feedbackの永続化はCloudflare KVを設定した場合のみで、デフォルトはログ出力のみです。
-- 関税率・輸入消費税・VAT・EPA/FTA・原産地判定・輸入/輸出規制・許認可・貿易書類生成・
-  物流・landed costは意図的にスコープ外です。
-- 認証・ワークスペース・課金・CSV一括分類などの機能はありません(意図的な制約です)。
+- The dataset covers only a handful of chapters/headings — no claim of
+  completeness.
+- Image URLs can be attached, but automatic AI image analysis (generating
+  `IMAGE_INFERRED` facts) is not implemented in this P0. The type exists;
+  the inference pipeline doesn't yet.
+- The LLM only ranks candidates already retrieved from the dataset, so
+  classification breadth is limited by dataset breadth, not just model
+  quality.
+- Feedback is only persisted if a Cloudflare KV namespace is configured;
+  otherwise it's logged and discarded.
+- Tariffs, taxes, FTA/origin, import/export regulations, licensing, trade
+  document generation, logistics, and landed cost are intentionally out of
+  scope — see "Out of scope" above.
+- No authentication, billing, workspaces, or CRM — also intentional.
+
+## Contributing
+
+Contributions are welcome, especially:
+
+- Real-world usage feedback (please open an Issue)
+- Expanding `data/hs/*.json` with more headings/subheadings and keywords
+- New test cases under `tests/cases/**`
+
+Run `npm test` before opening a pull request.
+
+**Once this P0's flow works end-to-end in the browser, no new features are
+being added.** The priority right now is real feedback on this one tool,
+not scope expansion.
+
+## Feedback
+
+Every result ends with:
+
+```
+この分類についてどう思いますか？
+[ 正しい ]  [ 違うと思う ]  [ 分からない ]
+```
+
+Choosing "違うと思う" (incorrect) optionally lets you add the HS code you
+believe is correct, why, and what information was missing — all optional,
+all used purely to improve the classifier as an OSS project. No account,
+practitioner profile, or contact info is required to leave feedback.
+
+## Business inquiries
+
+This project does not build out B2B features (no CRM, no sales pipeline, no
+company accounts/workspaces). If a business wants to explore integrating
+this into an internal system, connecting it to a product master, or other
+AI-assisted trade-ops work, there's a small, static note in the app's
+footer pointing to **TechVit** — not a lead-capture form, just a pointer.

@@ -1,6 +1,7 @@
 import { createRootRoute, createRoute, createRouter, Outlet } from "@tanstack/react-router"
 import { ClassifyPage } from "./routes/index"
 import { DisclaimerBanner } from "./components/DisclaimerBanner"
+import { BusinessInquiryNote } from "./components/BusinessInquiryNote"
 
 // P0 is intentionally a single page (see design doc: "トップページからすぐ
 // 分類を試せるようにしてください"). TanStack Router is wired up anyway per
@@ -8,9 +9,14 @@ import { DisclaimerBanner } from "./components/DisclaimerBanner"
 // doesn't require restructuring the app.
 const rootRoute = createRootRoute({
   component: () => (
-    <div class="min-h-screen">
+    <div class="min-h-screen flex flex-col">
       <DisclaimerBanner />
-      <Outlet />
+      <div class="flex-1">
+        <Outlet />
+      </div>
+      <footer class="border-t border-slate-200 py-4">
+        <BusinessInquiryNote />
+      </footer>
     </div>
   )
 })
