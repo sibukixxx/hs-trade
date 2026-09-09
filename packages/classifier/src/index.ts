@@ -1,0 +1,20 @@
+export * from "./types.js"
+export { classify } from "./classify.js"
+export type { ClassifyDeps } from "./classify.js"
+export { normalizeToProductFacts, resolveFacts, hasValue, buildSearchText } from "./productFacts.js"
+export type { ResolvedFact } from "./productFacts.js"
+export { detectCategory, getCategoryDefinition, categoryDefinitions } from "./categories/index.js"
+export type { CategoryDefinition, RequiredFactDefinition } from "./categories/index.js"
+export { findMissingFacts } from "./missingFacts.js"
+export { findCandidates } from "./candidates.js"
+export type { CandidateMatch } from "./candidates.js"
+export { hsDataset } from "./dataset.js"
+export { HeuristicLlm } from "./llm/heuristicLlm.js"
+export { AnthropicLlm } from "./llm/anthropicLlm.js"
+export type { AnthropicLlmOptions } from "./llm/anthropicLlm.js"
+export type { ClassifierLlm, LlmCandidateInput, LlmEvaluation } from "./llm/types.js"
+export type {
+  ClassificationFeedback,
+  FeedbackVerdict,
+  PractitionerRole
+} from "./feedback.js"

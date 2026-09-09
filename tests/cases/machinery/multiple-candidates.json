@@ -1,0 +1,16 @@
+{
+  "description": "家庭用電動ミキサーは複数のHS候補が提示される",
+  "request": {
+    "name": "電動ミキサー",
+    "description": "家庭用の電動フードミキサーで、野菜や果物のジュースを作ることができます。完成品として販売します。",
+    "facts": [
+      { "key": "function", "value": "食材の粉砕・ジュース抽出", "source": "USER_DECLARED" },
+      { "key": "complete_or_part", "value": "完成品", "source": "USER_DECLARED" }
+    ]
+  },
+  "expect": {
+    "status": "CLASSIFIED",
+    "topCodePrefix": "8509.40",
+    "candidateCountAtLeast": 2
+  }
+}

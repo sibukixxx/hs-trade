@@ -1,0 +1,44 @@
+[
+  {
+    "code": "0902",
+    "chapterCode": "09",
+    "descriptionJa": "茶(風味を付けてあるかないかを問わない。)",
+    "descriptionEn": "Tea, whether or not flavoured",
+    "keywords": ["茶", "お茶", "緑茶", "紅茶", "烏龍茶", "ティー", "tea"]
+  },
+  {
+    "code": "2101",
+    "chapterCode": "21",
+    "descriptionJa": "コーヒー、茶又はマテのエキス、エッセンス及び濃縮物並びにこれらを主材料とする調製品",
+    "descriptionEn": "Extracts, essences and concentrates of coffee, tea or maté",
+    "keywords": ["エキス", "抽出物", "インスタント", "濃縮", "extract", "essence", "instant"]
+  },
+  {
+    "code": "6109",
+    "chapterCode": "61",
+    "descriptionJa": "Tシャツ、シングレットその他の胴着(メリヤス編み又はクロセ編みのものに限る。)",
+    "descriptionEn": "T-shirts, singlets and other vests, knitted or crocheted",
+    "keywords": ["tシャツ", "Tシャツ", "ティーシャツ", "メリヤス", "ニット", "knit", "t-shirt", "tshirt"]
+  },
+  {
+    "code": "6205",
+    "chapterCode": "62",
+    "descriptionJa": "男子用のシャツ(メリヤス編み又はクロセ編みのものを除く。)",
+    "descriptionEn": "Men's or boys' shirts, not knitted or crocheted",
+    "keywords": ["シャツ", "織物", "woven", "shirt"]
+  },
+  {
+    "code": "2915",
+    "chapterCode": "29",
+    "descriptionJa": "非環式モノカルボン酸及びその無水物、ハロゲン化物、過酸化物、過酸並びにこれらの誘導体",
+    "descriptionEn": "Saturated acyclic monocarboxylic acids and their derivatives",
+    "keywords": ["酢酸", "カルボン酸", "acid", "acetic"]
+  },
+  {
+    "code": "8509",
+    "chapterCode": "85",
+    "descriptionJa": "家庭用電気機器(自蔵電動機を有するものに限る。)",
+    "descriptionEn": "Electromechanical domestic appliances, with self-contained electric motor",
+    "keywords": ["家庭用電気機器", "ミキサー", "グラインダー", "粉砕機", "ジューサー", "mixer", "grinder", "juicer", "appliance"]
+  }
+]

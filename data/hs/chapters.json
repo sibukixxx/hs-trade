@@ -1,0 +1,32 @@
+[
+  {
+    "code": "09",
+    "descriptionJa": "コーヒー、茶、マテ及び香辛料",
+    "descriptionEn": "Coffee, tea, maté and spices"
+  },
+  {
+    "code": "21",
+    "descriptionJa": "各種の調製食料品",
+    "descriptionEn": "Miscellaneous edible preparations"
+  },
+  {
+    "code": "61",
+    "descriptionJa": "衣類及び衣類附属品(メリヤス編み又はクロセ編みのものに限る。)",
+    "descriptionEn": "Articles of apparel and clothing accessories, knitted or crocheted"
+  },
+  {
+    "code": "62",
+    "descriptionJa": "衣類及び衣類附属品(メリヤス編み又はクロセ編みのものを除く。)",
+    "descriptionEn": "Articles of apparel and clothing accessories, not knitted or crocheted"
+  },
+  {
+    "code": "29",
+    "descriptionJa": "有機化学品",
+    "descriptionEn": "Organic chemicals"
+  },
+  {
+    "code": "85",
+    "descriptionJa": "電気機器及びその部分品",
+    "descriptionEn": "Electrical machinery and equipment and parts thereof"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "description": "十分な情報がある緑茶ティーバッグは単純に分類できる",
+  "request": {
+    "name": "緑茶ティーバッグ",
+    "description": "静岡県産の緑茶葉を使用したティーバッグ商品です。1箱20g入りで小分け包装(3kg以下)しています。",
+    "origin": "JP",
+    "destination": "US",
+    "facts": [
+      { "key": "ingredients", "value": "緑茶葉", "source": "USER_DECLARED" },
+      { "key": "processing_method", "value": "不発酵・乾燥", "source": "USER_DECLARED" }
+    ]
+  },
+  "expect": {
+    "status": "CLASSIFIED",
+    "topCodePrefix": "0902.10",
+    "candidateCountAtLeast": 1
+  }
+}

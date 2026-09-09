@@ -1,0 +1,16 @@
+{
+  "name": "@hs-trade/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@hs-trade/classifier": "*"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}

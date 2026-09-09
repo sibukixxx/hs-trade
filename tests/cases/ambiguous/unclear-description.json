@@ -1,0 +1,12 @@
+{
+  "description": "曖昧すぎる商品説明はカテゴリーを推定できず明確化を求める",
+  "request": {
+    "name": "謎の商品",
+    "description": "よくわからないものです。",
+    "facts": []
+  },
+  "expect": {
+    "status": "NEEDS_INFORMATION",
+    "missingFactKeys": ["product_category_hint"]
+  }
+}
