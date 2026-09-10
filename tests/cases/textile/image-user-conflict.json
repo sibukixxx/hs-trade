@@ -1,0 +1,20 @@
+{
+  "description": "画像からの素材推定とユーザー申告が食い違う場合はユーザー申告を優先する",
+  "request": {
+    "name": "レディースTシャツ",
+    "description": "半袖のニットTシャツです。",
+    "images": [{ "url": "https://example.com/tshirt.jpg", "alt": "green t-shirt" }],
+    "facts": [
+      { "key": "fiber_composition", "value": "ポリエステル100%", "source": "USER_DECLARED" },
+      { "key": "fiber_composition", "value": "綿100%", "source": "IMAGE_INFERRED", "confidence": 0.6 },
+      { "key": "knit_or_woven", "value": "ニット", "source": "USER_DECLARED" },
+      { "key": "garment_type", "value": "Tシャツ", "source": "USER_DECLARED" }
+    ]
+  },
+  "expect": {
+    "status": "CLASSIFIED",
+    "topCodePrefix": "6109.90",
+    "candidateCountAtLeast": 1,
+    "notesInclude": "fiber_composition"
+  }
+}

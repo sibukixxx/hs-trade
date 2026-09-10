@@ -1,0 +1,21 @@
+name = "hs-classifier-api"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Model used when ANTHROPIC_API_KEY is configured. Falls back to the
+# built-in heuristic ranker (no network call) when no key is set, so the
+# app is fully runnable without any secrets for local development.
+ANTHROPIC_MODEL = "claude-sonnet-5"
+ALLOWED_ORIGIN = "*"
+
+# Set the real key as a secret, never as a plaintext var:
+#   wrangler secret put ANTHROPIC_API_KEY
+
+# Feedback is P0's most important signal (see README). By default it is
+# only logged to the Worker console. To persist it, create a KV namespace
+# and uncomment this binding:
+# [[kv_namespaces]]
+# binding = "FEEDBACK_KV"
+# id = "replace-with-your-namespace-id"

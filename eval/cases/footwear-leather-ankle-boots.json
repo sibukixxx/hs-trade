@@ -1,0 +1,19 @@
+{
+  "id": "footwear-leather-ankle-boots",
+  "category": "footwear",
+  "productLabel": "本革製レディースアンクルブーツ",
+  "description": "Footwear has no category definition at all in this classifier yet. This case gives fully decisive information up front (upper material, sole material, ankle coverage) to see whether the gap is 'needs one more question' or 'cannot engage with this product family at all'.",
+  "initialRequest": {
+    "name": "レザーアンクルブーツ",
+    "description": "本革製の婦人用ショートブーツです。くるぶしを覆う丈で、アウトソールはラバー製です。"
+  },
+  "expectedStatus": "CLASSIFIED",
+  "expectedMissingQuestionKeys": ["upper_material", "covers_ankle", "primary_use"],
+  "expectedHs": {
+    "level": "heading",
+    "code": "6403",
+    "basis": "HS_NOMENCLATURE_TEXT",
+    "reference": "HS Chapter 64 structure (confirmed via CBP 'What Every Member of the Trade Community Should Know About: Footwear'): footwear is classified first by the material comprising the greatest external surface area of the upper, then by outer sole material. Leather upper + rubber/plastics/leather outer sole = heading 6403."
+  },
+  "notes": "Prediction before running: detectCategory() has no footwear keywords in any category's matchKeywords list, so this will fall through to category='unknown' and get the single generic clarifying question ('product_category_hint') instead of footwear-specific questions — even though the description already contains everything needed to classify. Expect a hard fail on expected_questions_asked and expected_candidate_found (chapter 64 isn't in data/hs/*.json at all), but NOT an overconfidence failure — the tool should at least not invent an answer."
+}

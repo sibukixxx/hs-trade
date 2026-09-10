@@ -1,0 +1,19 @@
+{
+  "id": "footwear-canvas-sneakers",
+  "category": "footwear",
+  "productLabel": "帆布(キャンバス)アッパーのスニーカー",
+  "description": "Second footwear data point with a different chapter-64 outcome (textile upper instead of leather), to confirm the gap found in the boots case is systematic rather than a one-off.",
+  "initialRequest": {
+    "name": "キャンバススニーカー",
+    "description": "アッパーが帆布(キャンバス地)のスニーカーで、アウトソールはゴム製です。普段履き用です。"
+  },
+  "expectedStatus": "CLASSIFIED",
+  "expectedMissingQuestionKeys": ["upper_material", "covers_ankle", "primary_use"],
+  "expectedHs": {
+    "level": "heading",
+    "code": "6404",
+    "basis": "HS_NOMENCLATURE_TEXT",
+    "reference": "HS heading 6404 text: 'Footwear with outer soles of rubber, plastics, leather or composition leather and uppers of textile materials' — textile (canvas) upper + rubber outer sole matches this heading directly."
+  },
+  "notes": "Same prediction as the leather boots case: category='unknown', generic clarifying question only, chapter 64 absent from the dataset. Keeping both footwear cases lets the final report say 'footwear is a structural gap' instead of relying on a single example."
+}

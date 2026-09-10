@@ -1,0 +1,18 @@
+{
+  "id": "cosmetics-lip-balm",
+  "category": "cosmetics",
+  "productLabel": "無香料リップクリーム(非医薬品)",
+  "description": "Cosmetics has no category definition. Deliberately phrased with no medicinal claims, since a medicated lip balm would push classification a different way (HS 3306) — testing plain cosmetic-use lip balm.",
+  "initialRequest": {
+    "name": "無香料リップクリーム",
+    "description": "唇の乾燥を防ぐ保湿クリームです。パラベンフリー処方で、医薬品的な効能は表示していません。"
+  },
+  "expectedStatus": "CLASSIFIED",
+  "expectedHs": {
+    "level": "subheading",
+    "code": "3304.10",
+    "basis": "RESEARCHED",
+    "reference": "US CBP guidance ('Beauty and Skin Care Products of Heading 3304') and multiple classification guides confirm non-medicated cosmetic lip balm is classified under 3304.10 (lip make-up preparations), the same subheading as lipstick — medicated lip balm with SPF/therapeutic claims would instead fall under 3306.20."
+  },
+  "notes": "Prediction before running: none of chemical/textile/food/machinery matchKeywords fire on this description, so category='unknown' and the generic clarifying question is asked instead of anything cosmetics-relevant. Chapter 33 is entirely absent from data/hs/*.json, so even a correct category label wouldn't help without dataset expansion."
+}

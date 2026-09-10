@@ -1,0 +1,24 @@
+{
+  "id": "machinery-parts-ball-bearing",
+  "category": "machinery_parts",
+  "productLabel": "汎用ボールベアリング(深溝玉軸受)",
+  "description": "A general-use part explicitly NOT dedicated to one machine. Unlike the footwear/electronics/cosmetics cases, this one DOES contain a machinery-category trigger word ('機械'), so category detection should actually work — but the category's chapter scope (only chapter 85) is wrong for this product (bearings are chapter 84), which should surface a different kind of gap.",
+  "initialRequest": {
+    "name": "深溝玉軸受(ボールベアリング)",
+    "description": "産業機械のシャフトを支持するための汎用ボールベアリングです。特定の完成機械専用ではなく、様々な機械に組み込み可能です。"
+  },
+  "followUpAnswers": {
+    "function": "回転軸を支持し摩擦を減らす汎用部品",
+    "complete_or_part": "部品(汎用、特定機械専用ではない)"
+  },
+  "expectedStatus": "CLASSIFIED",
+  "expectedCategory": "machinery",
+  "expectedMissingQuestionKeys": ["function", "complete_or_part"],
+  "expectedHs": {
+    "level": "subheading",
+    "code": "8482.10",
+    "basis": "RESEARCHED",
+    "reference": "HS heading 8482 ('Ball or roller bearings, and parts thereof'); subheading 8482.10 ('Ball bearings') — confirmed across multiple classification guides (flexport, dripcapital, freightamigo) as the standard code, independent of which machine the bearing eventually goes into (general-use parts like standard bearings are classified in their own heading rather than with the host machine)."
+  },
+  "notes": "Prediction before running: category detection should correctly land on 'machinery' (the word '機械' appears three times) — a useful contrast to the footwear/electronics/cosmetics cases. But the machinery category's chapterCodes is hardcoded to ['85'] only, modeling exactly one heading (8509, domestic appliances). Bearings are chapter 84, which the classifier's machinery category doesn't search at all. Expect correct category + correct questions, but zero candidates (HS_DATA_GAP) — a cleaner, more isolated finding than the other gap cases, and evidence that 'machinery' as currently scoped really means 'one specific type of small appliance', not machinery/parts broadly."
+}

@@ -1,0 +1,24 @@
+{
+  "id": "tea-matcha-powder",
+  "category": "tea",
+  "productLabel": "抹茶パウダー(碾茶を石臼で挽いたもの)",
+  "description": "Probes whether processing state changes the answer, using natural (not keyword-stuffed) Japanese a real seller would write. Matcha is ground tea leaf, not an extract, so it should stay in HS 0902 like plain green tea — but the description never says '緑茶' or '不発酵' verbatim.",
+  "initialRequest": {
+    "name": "抹茶パウダー",
+    "description": "京都府産の碾茶(てん茶)を石臼で挽いた抹茶パウダーです。お菓子作りや飲用に使用します。"
+  },
+  "followUpAnswers": {
+    "ingredients": "碾茶(てん茶)100%",
+    "processing_method": "石臼で挽いて微粉末にしたもの(浸出液の乾燥品ではありません)"
+  },
+  "expectedStatus": "CLASSIFIED",
+  "expectedCategory": "food",
+  "expectedMissingQuestionKeys": ["ingredients", "processing_method"],
+  "expectedHs": {
+    "level": "subheading",
+    "code": "0902.10",
+    "basis": "RESEARCHED",
+    "reference": "Matcha is ground green tea leaf, not a tea extract/essence/concentrate — multiple import-tariff references (e.g. tariffs.wove.com HTS 0902.10.10.15 'Certified Organic Matcha Green Tea Powder') classify matcha under 0902.10, explicitly distinguishing it from heading 2101 (tea extracts), which applies only to actual soluble/instant tea extracts."
+  },
+  "notes": "Prediction before running: category detection should work (plain '茶' keyword is common to 抹茶/碾茶). The real risk is candidate retrieval — our dataset's subheading keywords for 0902.10 are literally ['緑茶','不発酵','3kg以下','green tea','unfermented'], none of which appear in natural matcha phrasing (which says '抹茶'/'碾茶', not '緑茶'; and describes powder-making, not fermentation state). If retrieval comes back empty, that's a real, honest weakness — the demo dataset's keyword list only recognizes the exact vocabulary of its own descriptions, not domain synonyms a real user would actually type."
+}

@@ -1,0 +1,16 @@
+{
+  "description": "化学名とCAS番号が判明している単一化合物は分類できる",
+  "request": {
+    "name": "工業用酢酸",
+    "description": "食品添加物及び工業用途に使用される薬品です。",
+    "facts": [
+      { "key": "chemical_name", "value": "酢酸(Acetic Acid, CAS 64-19-7)", "source": "USER_DECLARED" },
+      { "key": "is_mixture", "value": "単一化合物", "source": "USER_DECLARED" }
+    ]
+  },
+  "expect": {
+    "status": "CLASSIFIED",
+    "topCodePrefix": "2915.21",
+    "candidateCountAtLeast": 1
+  }
+}

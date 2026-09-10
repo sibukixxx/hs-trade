@@ -1,0 +1,12 @@
+{
+  "description": "素材構成が分からないTシャツは無理に分類せず追加質問を返す",
+  "request": {
+    "name": "半袖Tシャツ",
+    "description": "シンプルなデザインの半袖Tシャツです。",
+    "facts": []
+  },
+  "expect": {
+    "status": "NEEDS_INFORMATION",
+    "missingFactKeys": ["fiber_composition"]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "tea-instant-extract",
+  "category": "tea",
+  "productLabel": "インスタントティー(紅茶抽出物の粉末)",
+  "description": "The mirror-image case of matcha: an actual tea EXTRACT reduced to powder, which the HS treats completely differently (heading 2101, not 0902) even though both are 'tea, as a powder'. Tests whether the tool can tell leaf/powder tea apart from extract/instant tea when the user's own words include the giveaway vocabulary.",
+  "initialRequest": {
+    "name": "インスタントティー(粉末)",
+    "description": "紅茶の抽出液を乾燥させて粉末状にしたインスタントティーです。お湯に溶かして飲みます。"
+  },
+  "followUpAnswers": {
+    "ingredients": "紅茶抽出物(茶エキス)100%",
+    "processing_method": "抽出・乾燥・粉末化(インスタント化)"
+  },
+  "expectedStatus": "CLASSIFIED",
+  "expectedCategory": "food",
+  "expectedMissingQuestionKeys": ["ingredients", "processing_method"],
+  "expectedHs": {
+    "level": "subheading",
+    "code": "2101.20",
+    "basis": "RESEARCHED",
+    "reference": "US CBP ruling NY E87596 ('The tariff classification of Instant Tea from India') and HTS/HS heading 2101 text ('Extracts, essences and concentrates of coffee, tea or maté...') both confirm instant/soluble tea powder is 2101.20, not 0902."
+  },
+  "notes": "Prediction before running: unlike matcha, this description naturally contains '紅茶', '茶エキス' and 'インスタント' — all of which are literally in our dataset's 2101.20/heading-2101 keyword lists. Expect this one to actually work, in contrast to the matcha case. If it does, that's a useful positive data point showing the retrieval failure on matcha is about vocabulary coverage, not a fundamental inability to separate leaf tea from extract."
+}

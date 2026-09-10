@@ -1,0 +1,93 @@
+[
+  {
+    "code": "0902.10",
+    "headingCode": "0902",
+    "descriptionJa": "緑茶(不発酵のものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。)",
+    "descriptionEn": "Green tea (not fermented), in immediate packings of a content not exceeding 3 kg",
+    "keywords": ["緑茶", "不発酵", "3kg以下", "green tea", "unfermented"]
+  },
+  {
+    "code": "0902.20",
+    "headingCode": "0902",
+    "descriptionJa": "緑茶(不発酵のものに限るものとし、その他のもの)",
+    "descriptionEn": "Green tea (not fermented), other",
+    "keywords": ["緑茶", "不発酵", "green tea", "unfermented", "bulk"]
+  },
+  {
+    "code": "0902.30",
+    "headingCode": "0902",
+    "descriptionJa": "紅茶(発酵させてあるものに限るものとし、正味重量が3kg以下の直接包装にしたものに限る。)",
+    "descriptionEn": "Black tea (fermented), in immediate packings of a content not exceeding 3 kg",
+    "keywords": ["紅茶", "発酵", "3kg以下", "black tea", "fermented"]
+  },
+  {
+    "code": "0902.40",
+    "headingCode": "0902",
+    "descriptionJa": "紅茶(発酵させてあるものに限るものとし、その他のもの)",
+    "descriptionEn": "Black tea (fermented), other",
+    "keywords": ["紅茶", "発酵", "black tea", "fermented", "bulk"]
+  },
+  {
+    "code": "2101.20",
+    "headingCode": "2101",
+    "descriptionJa": "茶又はマテのエキス、エッセンス及び濃縮物並びにこれらを主材料とする調製品",
+    "descriptionEn": "Extracts, essences and concentrates of tea or maté",
+    "keywords": ["茶エキス", "インスタントティー", "tea extract", "instant tea"]
+  },
+  {
+    "code": "6109.10",
+    "headingCode": "6109",
+    "descriptionJa": "Tシャツ等(綿製のもの)",
+    "descriptionEn": "T-shirts, singlets, of cotton",
+    "keywords": ["綿", "コットン", "cotton"]
+  },
+  {
+    "code": "6109.90",
+    "headingCode": "6109",
+    "descriptionJa": "Tシャツ等(その他の紡織用繊維製のもの)",
+    "descriptionEn": "T-shirts, singlets, of other textile materials",
+    "keywords": ["ポリエステル", "化学繊維", "合成繊維", "polyester", "synthetic", "man-made"]
+  },
+  {
+    "code": "6205.20",
+    "headingCode": "6205",
+    "descriptionJa": "男子用シャツ(綿製のもの)",
+    "descriptionEn": "Men's shirts, of cotton",
+    "keywords": ["綿", "コットン", "cotton"]
+  },
+  {
+    "code": "6205.30",
+    "headingCode": "6205",
+    "descriptionJa": "男子用シャツ(人造繊維製のもの)",
+    "descriptionEn": "Men's shirts, of man-made fibres",
+    "keywords": ["ポリエステル", "化学繊維", "合成繊維", "polyester", "synthetic", "man-made"]
+  },
+  {
+    "code": "2915.21",
+    "headingCode": "2915",
+    "descriptionJa": "酢酸",
+    "descriptionEn": "Acetic acid",
+    "keywords": ["酢酸", "acetic acid", "64-19-7"]
+  },
+  {
+    "code": "2915.29",
+    "headingCode": "2915",
+    "descriptionJa": "酢酸の塩及びその他の誘導体",
+    "descriptionEn": "Salts and other derivatives of acetic acid",
+    "keywords": ["酢酸塩", "acetate", "derivative"]
+  },
+  {
+    "code": "8509.40",
+    "headingCode": "8509",
+    "descriptionJa": "食料品用グラインダー及びミキサー並びに果汁又は野菜ジュースの搾り機",
+    "descriptionEn": "Food grinders, mixers and fruit or vegetable juice extractors",
+    "keywords": ["ミキサー", "グラインダー", "フードプロセッサー", "ジューサー", "粉砕", "mixer", "grinder", "juicer", "food processor"]
+  },
+  {
+    "code": "8509.80",
+    "headingCode": "8509",
+    "descriptionJa": "その他の家庭用電気機器",
+    "descriptionEn": "Other domestic appliances",
+    "keywords": ["その他の家庭用電気機器", "other appliance"]
+  }
+]
