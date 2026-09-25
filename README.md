@@ -7,6 +7,35 @@ a small, single-purpose tool, not a trade platform.
 > are a research/reference tool. For anything that matters, confirm with a
 > customs broker or your local customs authority.
 
+
+<!-- role-boundary:v1 -->
+## Role and boundaries
+
+**Role:** one-product-at-a-time HS classification researchを行う **small, public classification vertical**。product factsとsource provenanceを保ち、不足情報を明示して候補を返す。
+
+### Owns
+
+- HS classification-specific ProductFacts
+- classification dataset/candidate retrieval
+- missing-information questions
+- candidate ranking/explanation boundary
+- user feedback for classification quality
+
+### Does not own
+
+- tariff/tax/origin/regulationの総合Trade platform
+- CRM, billing, workspace, customer operations
+- generic Research semantics
+- privileged customs/trade execution
+- official customs determination
+
+### Integration
+
+```text
+Product facts → HS Classifier → candidate + uncertainty + provenance
+```
+
+Reusable classification contractはUIから分離する。将来ほかのTrade Toolsへ広げる場合も、巨大なsingle trade applicationへ統合せず、versioned artifacts/contractsで接続する。
 ## What is this?
 
 This project exists for three reasons, in this order of priority:
